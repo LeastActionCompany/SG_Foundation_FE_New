@@ -101,7 +101,7 @@ export const galleryImages = [
 ];
 
 export const contactInfo = [
-  { label: "Phone", value: "+91 8189968881", href: "tel:+918189968881" },
+  { label: "Phone", value: "+91 8148118563", href: "tel:+918148118563" },
   {
     label: "Email",
     value: "spreadgoodnessindia@gmail.com",
@@ -109,7 +109,7 @@ export const contactInfo = [
   },
   {
     label: "Address",
-    value: "No. 9, Thendral Nagar,Sathuvachari, Vellore-632009 India",
+    value: "No. 85, Sarathy Nagar, Kagithapattarai, Vellore-632012 India",
   },
 ];
 

@@ -83,12 +83,12 @@ export default function Footer() {
             </div>
             <div>
               <p className="mb-1 text-[10px] uppercase tracking-wider text-white/30">Phone</p>
-              <a href="tel:+918189968881" className="transition hover:text-white">
-                +91 8189968881
+              <a href="tel:+918148118563" className="transition hover:text-white">
+                +91 8148118563
               </a>
             </div>
           </div>
-
+            
           <a
             href="#donate"
             className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-5 py-3 text-center text-sm font-bold text-ink shadow-[0_4px_20px_rgba(232,168,56,0.3)] transition-all duration-300 hover:scale-105 hover:shadow-glow-gold"
