@@ -85,13 +85,11 @@ export default function TeamCard({
       //   }
       // `}
       className={`
-group relative will-change-transform
-cursor-pointer overflow-hidden
-rounded-[28px]
-border border-white/20
-bg-white/70 backdrop-blur-xl
-transition-all duration-500
-`}
+       group relative will-change-transform
+       cursor-pointer overflow-hidden
+       bg-white
+       transition-all duration-500
+       `}
     >
       {/* Gradient Glow */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -121,11 +119,11 @@ transition-all duration-500
           {member.role}
         </p>
 
-        <p className="mt-3 text-sm leading-6 text-slate-500 line-clamp-2">
+        {/* <p className="mt-3 text-sm leading-6 text-slate-500 line-clamp-2">
           {member.description}
-        </p>
+        </p> */}
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileHover={{ opacity: 1, y: 0 }}
           className="
@@ -136,7 +134,7 @@ transition-all duration-500
           "
         >
           Explore Profile
-        </motion.div>
+        </motion.div> */}
       </div>
     </motion.div>
   );

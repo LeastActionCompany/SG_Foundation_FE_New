@@ -67,10 +67,9 @@ export default function TeamSlider() {
         viewport={{ once: true, amount: 0.2 }}
         className={`
         group relative will-change-transform
-        cursor-pointer overflow-hidden
-        rounded-[28px]
-        border border-white/20
-        bg-white/70 backdrop-blur-xl
+        overflow-hidden
+    
+        bg-white
         transition-all duration-500
         `}
       >
@@ -89,9 +88,6 @@ export default function TeamSlider() {
             <ArrowButton direction="next" onClick={showNext} label="Next" />
           </div>
         </div>
-
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 hidden w-16 bg-gradient-to-r from-white to-transparent lg:block" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-16 bg-gradient-to-l from-white to-transparent lg:block" />
 
         <div ref={sliderRef} className="scrollbar-hidden overflow-x-auto overflow-y-visible">
           <motion.div
