@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
+import StatCounter from "./StatCounter";
 
 const slides = [
   {
@@ -77,14 +78,13 @@ export default function HeroSlider() {
           fadeEffect={{ crossFade: true }}
           spaceBetween={0}
           slidesPerView={1}
-          navigation
           pagination={{ clickable: true }}
           autoplay={{
-            delay: 6000,
+            delay: 1800,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
-          speed={1200}
+          speed={600}
           loop={true}
           onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           className="h-full w-full"
@@ -113,17 +113,17 @@ export default function HeroSlider() {
                   />
 
                   {/* Content */}
-                  <div className="relative z-10 flex h-full items-center">
-                    <div className="mx-auto w-full max-w-7xl px-6 py-32 sm:px-8 lg:px-12">
-                      <div className="max-w-3xl">
+                  <div className="relative z-10 flex h-full flex-col justify-center pt-[140px] md:pt-[180px] pb-[180px] md:pb-[160px]">
+                    <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+                      <div className="max-w-3xl flex flex-col items-center text-center lg:items-start lg:text-left mx-auto lg:mx-0">
                         {/* Category badge */}
                         <div
-                          className={`mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-700 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                          className={`mb-5 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                           style={{
                             background: `${slide.accent}25`,
                             border: `1px solid ${slide.accent}50`,
                             color: slide.accent,
-                            transitionDelay: "200ms",
+                            transitionDelay: "100ms",
                           }}
                         >
                           <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ background: slide.accent }} />
@@ -132,8 +132,8 @@ export default function HeroSlider() {
 
                         {/* Main headline */}
                         <h1
-                          className={`font-display text-5xl font-bold leading-[1.05] text-white sm:text-6xl md:text-7xl lg:text-8xl transition-all duration-700 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-                          style={{ transitionDelay: "350ms" }}
+                          className={`font-display text-5xl font-bold leading-[1.05] text-white sm:text-6xl md:text-7xl lg:text-8xl transition-all duration-500 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+                          style={{ transitionDelay: "200ms" }}
                         >
                           {slide.title.split(" ").map((word, wi) => (
                             <span key={wi} className="block">
@@ -146,20 +146,20 @@ export default function HeroSlider() {
 
                         {/* Description */}
                         <p
-                          className={`mt-6 max-w-lg text-base leading-relaxed text-white/80 md:text-lg transition-all duration-700 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-                          style={{ transitionDelay: "500ms" }}
+                          className={`mt-6 max-w-lg text-base leading-relaxed text-white/80 md:text-lg transition-all duration-500 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+                          style={{ transitionDelay: "300ms" }}
                         >
                           {slide.description}
                         </p>
 
                         {/* CTAs */}
                         <div
-                          className={`mt-10 flex flex-wrap gap-4 transition-all duration-700 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-                          style={{ transitionDelay: "650ms" }}
+                          className={`mt-8 mb-[20px] flex flex-col w-full sm:w-auto sm:flex-row items-center gap-4 transition-all duration-500 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+                          style={{ transitionDelay: "400ms" }}
                         >
                           <a
                             href={slide.href}
-                            className="group relative overflow-hidden rounded-xl px-7 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:scale-105"
+                            className="group relative overflow-hidden rounded-xl px-7 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:scale-105 w-full sm:w-auto"
                             style={{ background: slide.accent }}
                           >
                             <span className="relative z-10">{slide.cta}</span>
@@ -167,7 +167,7 @@ export default function HeroSlider() {
                           </a>
                           <a
                             href="#donate"
-                            className="group rounded-xl border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/20 hover:scale-105"
+                            className="group rounded-xl border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/20 hover:scale-105 w-full sm:w-auto"
                           >
                             Donate Now
                           </a>
@@ -197,7 +197,9 @@ export default function HeroSlider() {
                   key={stat.label}
                   className="group flex flex-col items-center justify-center gap-1 px-4 py-5 text-center transition-colors duration-300 hover:bg-white/10"
                 >
-                  <div className="text-2xl font-bold text-white md:text-3xl">{stat.value}</div>
+                  <div className="text-2xl font-bold text-white md:text-3xl">
+                    <StatCounter value={parseInt(stat.value, 10)} />+
+                  </div>
                   <div className="text-[10px] font-medium uppercase tracking-widest text-white/60">{stat.label}</div>
                 </div>
               ))}

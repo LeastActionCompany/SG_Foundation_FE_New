@@ -25,6 +25,42 @@
   }
 }
 
+@layer components {
+  /* Typography */
+  .heading-hero {
+    @apply font-display font-extrabold leading-tight tracking-tight text-[38px] md:text-[56px] lg:text-[72px] xl:text-[84px];
+  }
+  
+  .heading-section {
+    @apply font-display font-bold leading-tight tracking-tight text-[32px] md:text-[40px] lg:text-[48px] xl:text-[56px];
+  }
+  
+  .heading-sub {
+    @apply font-sans font-bold leading-snug text-[22px] md:text-[24px] lg:text-[28px];
+  }
+
+  .text-description {
+    @apply font-sans font-normal leading-[1.8] text-[18px] md:text-[20px] text-muted;
+  }
+
+  .card-title {
+    @apply font-sans font-bold leading-snug text-[22px] md:text-[24px];
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-[16px] bg-primary px-7 py-4 text-[16px] md:text-[18px] font-semibold text-white shadow-soft transition-all duration-300 hover:-translate-y-[3px] hover:bg-primary-dark hover:shadow-[0_20px_40px_rgba(40,60,129,0.3)] active:scale-95 disabled:opacity-70 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-[16px] border border-white/70 bg-white/10 px-7 py-4 text-[16px] md:text-[18px] font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/20 hover:shadow-[0_20px_40px_rgba(255,255,255,0.15)] active:scale-95 disabled:opacity-70 disabled:pointer-events-none;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-[16px] border-2 border-primary bg-transparent px-7 py-4 text-[16px] md:text-[18px] font-semibold text-primary transition-all duration-300 hover:-translate-y-[3px] hover:bg-primary/5 hover:shadow-[0_20px_40px_rgba(40,60,129,0.15)] active:scale-95 disabled:opacity-70 disabled:pointer-events-none;
+  }
+}
+
 @layer utilities {
   .scrollbar-hidden {
     -ms-overflow-style: none;
@@ -37,6 +73,18 @@
 
   .text-balance {
     text-wrap: balance;
+  }
+
+  .section {
+    @apply py-10 md:py-14 lg:py-[70px];
+  }
+
+  .section-sm {
+    @apply py-8 md:py-10 lg:py-[50px];
+  }
+
+  .section-lg {
+    @apply py-12 md:py-[70px] lg:py-[90px];
   }
   
   .glass {
