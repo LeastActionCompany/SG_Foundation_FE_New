@@ -77,26 +77,31 @@ export const galleryImages = [
     src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=900&q=80",
     alt: "Children smiling during a community outreach event",
     tall: false,
+    category: "Education",
   },
-{
-  src: "https://images.unsplash.com/photo-1593113630400-ea4288922497?auto=format&fit=crop&w=900&q=80",
-  alt: "Volunteers handing out support materials outdoors",
-  tall: false,
-},
+  {
+    src: "https://images.unsplash.com/photo-1593113630400-ea4288922497?auto=format&fit=crop&w=900&q=80",
+    alt: "Volunteers handing out support materials outdoors",
+    tall: false,
+    category: "Community",
+  },
   {
     src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80",
     alt: "Group of volunteers gathered together and smiling",
     tall: true,
+    category: "Community",
   },
   {
     src: "https://images.unsplash.com/photo-1518398046578-8cca57782e17?auto=format&fit=crop&w=900&q=80",
     alt: "Young student focused on educational materials",
     tall: false,
+    category: "Education",
   },
   {
     src: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=900&q=80",
     alt: "Women participating in a skills and empowerment workshop",
     tall: false,
+    category: "Empowerment",
   },
 ];
 
@@ -121,10 +126,11 @@ export const footerLinks = {
     { label: "Contact", href: "#contact" },
   ],
   services: [
-    { label: "Educational Support", href: "#services" },
-    { label: "Health Care", href: "#services" },
-    { label: "Women Empowerment", href: "#services" },
-    { label: "Donation & Sponsorship", href: "#donate" },
+    { label: "Educational Support", href: "/educational-support" },
+    { label: "Health Care", href: "/health-care" },
+    { label: "Child & Women Welfare", href: "/child-women-welfare" },
+    { label: "Volunteer Support", href: "/volunteer-support" },
+    { label: "Donation & Sponsorship", href: "/donation-sponsorship" },
   ],
   socials: [
     { label: "Instagram", href: "#", icon: "instagram" },

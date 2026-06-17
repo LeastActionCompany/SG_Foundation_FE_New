@@ -4,7 +4,7 @@ import TeamSlider from "./TeamSlider";
 
 export default function TeamSection() {
   return (
-    <section id="team" className="relative overflow-hidden py-24 lg:py-32">
+    <section id="team" className="relative overflow-hidden section">
       <div className="absolute inset-0 bg-white" />
       <div className="absolute top-1/2 right-0 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-primary/5 blur-[120px]" />
 

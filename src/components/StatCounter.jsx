@@ -15,7 +15,7 @@ export default function StatCounter({ value }) {
     let started = false;
 
     const animate = () => {
-      const duration = 1400;
+      const duration = 2000;
       const start = performance.now();
 
       const step = (timestamp) => {

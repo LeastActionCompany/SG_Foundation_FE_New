@@ -9,6 +9,7 @@ import ImpactSection from "../components/sections/ImpactSection";
 import ServicesSection from "../components/sections/ServicesSection";
 import VolunteerSection from "../components/sections/VolunteerSection";
 import TeamSection from "../components/TeamSection";
+import FloatingWhatsApp from "../components/FloatingWhatsApp";
 
 export default function HomePage() {
   return (
@@ -26,6 +27,7 @@ export default function HomePage() {
         <ContactSection />
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 }

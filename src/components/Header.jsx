@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { navigationLinks } from "../data/siteContent";
 import logo from "../assest/logo.jpeg";
-import { navigateTo } from "../utils/navigation";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -30,28 +30,38 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           scrolled
-            ? "bg-white/95 shadow-[0_4px_30px_rgba(40,60,129,0.12)] backdrop-blur-2xl py-0"
-            : "bg-transparent py-2"
+            ? "top-4 mx-auto w-[95%] max-w-6xl rounded-full bg-white/90 shadow-[0_8px_32px_rgba(0,0,0,0.08)] backdrop-blur-xl border border-white/50 py-2 sm:py-2.5"
+            : "top-0 w-full bg-transparent py-5"
         }`}
       >
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+        <div className={`mx-auto flex w-full items-center justify-between gap-4 transition-all duration-500 ${scrolled ? "px-6 lg:px-8" : "max-w-7xl px-4 sm:px-6 lg:px-8"}`}>
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-3 group">
-            <div className="flex items-center justify-center rounded-2xl bg-white p-1.5 shadow-md ring-1 ring-primary/10 transition-transform group-hover:scale-105">
+          <a href="#home" className="flex items-center gap-4 group">
+            <div 
+              className={`flex items-center justify-center bg-white transition-all duration-500 group-hover:scale-105 shrink-0`}
+              style={{
+                width: scrolled ? "56px" : "72px",
+                height: scrolled ? "56px" : "72px",
+                borderRadius: "50%",
+                boxShadow: scrolled ? "0 4px 12px rgba(0,0,0,0.08)" : "0 8px 20px rgba(0,0,0,0.12)",
+                border: "2px solid rgba(255,255,255,0.8)",
+                overflow: "hidden"
+              }}
+            >
               <img
                 src={logo}
                 alt="SG Foundation Logo"
-                className="h-12 w-auto object-contain sm:h-14"
+                className="h-full w-full object-contain p-1.5"
               />
             </div>
-            <div className="leading-tight">
-              <h1 className={`text-lg font-bold tracking-wide transition-colors ${scrolled ? "text-ink" : "text-white"} sm:text-xl`}>
+            <div className="leading-tight flex flex-col justify-center">
+              <h1 className={`font-bold tracking-wide transition-colors ${scrolled ? "text-ink text-lg" : "text-white text-xl"}`}>
                 SG Foundation
               </h1>
-              <p className={`hidden text-xs font-medium transition-colors ${scrolled ? "text-muted" : "text-white/70"} sm:block`}>
-                Spread Goodness...
+              <p className={`hidden text-[11px] font-semibold uppercase tracking-wider transition-colors ${scrolled ? "text-primary/70" : "text-white/70"} sm:block`}>
+                Spread Goodness
               </p>
             </div>
           </a>
@@ -61,10 +71,10 @@ export default function Header() {
             type="button"
             aria-expanded={open}
             onClick={() => setOpen((prev) => !prev)}
-            className={`inline-flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-xl border transition-all duration-300 lg:hidden ${
+            className={`inline-flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full border transition-all duration-300 lg:hidden ${
               scrolled
-                ? "border-primary/20 text-primary hover:bg-primary/5"
-                : "border-white/30 text-white hover:bg-white/10"
+                ? "border-primary/10 text-primary hover:bg-primary/5 shadow-sm"
+                : "border-white/20 text-white hover:bg-white/10"
             }`}
           >
             <span className={`block h-0.5 w-5 rounded-full bg-current transition-all duration-300 ${open ? "translate-y-2 rotate-45" : ""}`} />
@@ -78,17 +88,18 @@ export default function Header() {
               <a
                 key={link.label}
                 href={link.href}
-                className={`relative text-sm font-medium transition-all duration-200 after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full ${
-                  scrolled ? "text-ink hover:text-primary" : "text-white/90 hover:text-white"
+                className={`relative text-sm font-bold tracking-wide transition-all duration-300 py-2 hover:-translate-y-0.5 ${
+                  scrolled ? "text-ink/80 hover:text-primary" : "text-white/90 hover:text-white"
                 }`}
               >
                 {link.label}
+                <span className={`absolute bottom-0 left-0 h-[2px] w-0 transition-all duration-300 hover:w-full ${scrolled ? 'bg-primary' : 'bg-gold'}`} style={{ width: '0%' }} onMouseEnter={(e) => e.currentTarget.style.width = '100%'} onMouseLeave={(e) => e.currentTarget.style.width = '0%'} />
               </a>
             ))}
 
             <a
               href="#donate"
-              className="relative overflow-hidden rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(40,60,129,0.35)] transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_30px_rgba(40,60,129,0.45)] before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary-light before:to-primary before:opacity-0 before:transition-opacity hover:before:opacity-100"
+              className={`relative overflow-hidden rounded-full bg-primary px-7 py-2.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(40,60,129,0.3)] hover:bg-primary-dark ml-2`}
             >
               <span className="relative z-10">Donate Now</span>
             </a>
