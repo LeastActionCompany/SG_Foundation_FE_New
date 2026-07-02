@@ -1,4 +1,5 @@
 import { Reveal, ImgBox } from "./shared";
+import journeyImage from "../../assest/care/Journey.png";
 
 export default function SuccessStory() {
   return (
@@ -48,6 +49,8 @@ export default function SuccessStory() {
                 {/* Curved Container Shape */}
                 <div className="absolute inset-0 bg-white rounded-tl-[100px] rounded-br-[100px] shadow-lg p-3">
                   <ImgBox 
+                    src={journeyImage}
+                    alt="Beneficiary seated in a wheelchair after gaining independence through support"
                     label="Beneficiary Story Image" 
                     className="w-full h-full rounded-tl-[90px] rounded-br-[90px] overflow-hidden" 
                   />

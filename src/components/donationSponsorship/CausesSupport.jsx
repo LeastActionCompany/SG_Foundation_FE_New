@@ -1,11 +1,17 @@
 import { Reveal, ImgBox } from "./shared";
 import { BookOpen, UserCheck, Apple, Shield } from "lucide-react";
 import { navigateTo } from "../../utils/navigation";
+import educationImage from "../../assest/donate/Education.png";
+import womenImage from "../../assest/donate/Women.png";
+import nutritionImage from "../../assest/donate/Nutrition.png";
+import safetyImage from "../../assest/donate/Safety.png";
 
 const causes = [
   {
     title: "Education For All",
     desc: "Help children access quality education and build brighter futures.",
+    image: educationImage,
+    alt: "Children learning together with donated education support",
     imgLabel: "Education Cause Image",
     icon: BookOpen,
     color: "text-rose-600",
@@ -13,6 +19,8 @@ const causes = [
   {
     title: "Women Empowerment",
     desc: "Empower women with skills, resources and opportunities for independence.",
+    image: womenImage,
+    alt: "Woman learning vocational skills through sponsorship support",
     imgLabel: "Women Cause Image",
     icon: UserCheck,
     color: "text-amber-600",
@@ -20,6 +28,8 @@ const causes = [
   {
     title: "Nutrition & Health",
     desc: "Provide nutritious food and healthcare for a healthier tomorrow.",
+    image: nutritionImage,
+    alt: "Community nutrition program preparing healthy meals",
     imgLabel: "Nutrition Cause Image",
     icon: Apple,
     color: "text-emerald-600",
@@ -27,6 +37,8 @@ const causes = [
   {
     title: "Safety & Protection",
     desc: "Ensure safety, protection and dignity for vulnerable individuals.",
+    image: safetyImage,
+    alt: "Safe community support space for children and families",
     imgLabel: "Safety Cause Image",
     icon: Shield,
     color: "text-blue-600",
@@ -55,6 +67,8 @@ export default function CausesSupport() {
                   
                   <div className="h-48 w-full relative overflow-hidden bg-[#FAFAF8] rounded-t-[32px] rounded-b-[40px] z-10 border-b-4 border-white">
                     <ImgBox 
+                      src={cause.image}
+                      alt={cause.alt}
                       label={cause.imgLabel} 
                       className="w-full h-full transition-transform duration-700 group-hover:scale-110 !border-none" 
                     />

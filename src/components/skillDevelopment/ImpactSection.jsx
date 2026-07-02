@@ -1,5 +1,6 @@
 import { Reveal, ImgBox, Counter } from "./shared";
 import { Users, BookOpen, Building, Briefcase } from "lucide-react";
+import impact from "../../assest/impact.png";
 
 const stats = [
   { icon: Users, value: 10000, suffix: "+", label: "Learners Trained" },
@@ -52,10 +53,11 @@ export default function ImpactSection() {
 
           {/* Right Image Area */}
           <div className="lg:w-1/2 relative min-h-[400px] lg:min-h-auto z-0">
-            <ImgBox 
-              label="Impact Background Image (skill-impact.jpg)" 
-              className="absolute inset-0 w-full h-full" 
-            />
+            <ImgBox
+  src={impact}
+  label="Impact Background Image"
+  className="absolute inset-0 w-full h-full object-cover"
+/>
             {/* Decorative dot pattern over image */}
             <div 
               className="absolute top-8 right-8 w-24 h-24 opacity-40 mix-blend-overlay"

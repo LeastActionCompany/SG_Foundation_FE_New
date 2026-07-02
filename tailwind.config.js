@@ -37,32 +37,6 @@ export default {
           "linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.78)), url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1400&q=80')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
-      keyframes: {
-        fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(28px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-12px)" },
-        },
-        shimmer: {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
-        },
-        pulse_glow: {
-          "0%, 100%": { opacity: "0.6", transform: "scale(1)" },
-          "50%": { opacity: "1", transform: "scale(1.05)" },
-        },
-        scroll_bounce: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(6px)" },
-        },
-        marquee: {
-          "0%": { transform: "translateX(0%)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
-      },
       animation: {
         "fade-up": "fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both",
         float: "float 4s ease-in-out infinite",

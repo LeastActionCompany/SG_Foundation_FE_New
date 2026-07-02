@@ -1,6 +1,7 @@
 import { Reveal, ImgBox } from "./shared";
 import { Heart, Users } from "lucide-react";
 import { navigateTo } from "../../utils/navigation";
+import beTheReasonImage from "../../assest/donate/bethereson.png";
 
 export default function DonationCTA() {
   return (
@@ -57,6 +58,8 @@ export default function DonationCTA() {
               <div className="absolute inset-y-0 right-0 w-[120%] p-4">
                 <div className="w-full h-full rounded-[32px] rounded-bl-[100px] overflow-hidden bg-white relative shadow-[-20px_0_40px_rgba(0,0,0,0.3)] border-4 border-[#0F6B4B]">
                    <ImgBox 
+                     src={beTheReasonImage}
+                     alt="Community garden meal supported by donations"
                      label="Community Image" 
                      className="w-full h-full object-cover" 
                    />

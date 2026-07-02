@@ -1,5 +1,7 @@
 import { Reveal, ImgBox } from "./shared";
 import { ArrowRight, Heart, HeartHandshake, Shield, Sparkles } from "lucide-react";
+import heroImage from "../../assest/care/diffablecare.png";
+import supporterImage from "../../assest/care/image.png";
 
 export default function HeroSection() {
   return (
@@ -57,7 +59,13 @@ export default function HeroSection() {
                 <div className="flex -space-x-3">
                   {[1, 2, 3].map((i) => (
                     <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
-                      <ImgBox label={`User`} className="w-full h-full !border-none" />
+                      <ImgBox
+                        src={supporterImage}
+                        alt="Differently abled care supporter"
+                        label="Supporter"
+                        className="w-full h-full !border-none"
+                        style={{ transform: `scale(${1 + i * 0.03})` }}
+                      />
                     </div>
                   ))}
                 </div>
@@ -78,6 +86,8 @@ export default function HeroSection() {
               {/* Main organic circular image container */}
               <div className="w-[90%] h-[90%] rounded-full overflow-hidden border-8 border-white shadow-xl bg-white relative">
                 <ImgBox 
+                  src={heroImage}
+                  alt="Inclusive creative workshop for differently abled people"
                   label="Differently Abled Hero Image" 
                   className="w-full h-full absolute inset-0" 
                 />

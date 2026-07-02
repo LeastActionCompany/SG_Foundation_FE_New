@@ -1,6 +1,7 @@
 import { Reveal, ImgBox } from "./shared";
 import { ArrowRight, Heart } from "lucide-react";
 import { navigateTo } from "../../utils/navigation";
+import cta from "../../assest/Offer/cta.png";
 
 export default function CTASection() {
   return (
@@ -57,10 +58,11 @@ export default function CTASection() {
           {/* Right Image */}
           <Reveal delay={150} className="relative hidden lg:block">
             <div className="relative rounded-3xl overflow-hidden aspect-[16/10] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-               <ImgBox 
-                 label="CTA Background Image (skill-cta.jpg)" 
-                 className="w-full h-full" 
-               />
+              <img
+  src={cta}
+  alt="CTA Background"
+  className="w-full h-full object-cover"
+/>
                
                {/* Dark gradient overlay for bottom */}
                <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] to-transparent opacity-60" />

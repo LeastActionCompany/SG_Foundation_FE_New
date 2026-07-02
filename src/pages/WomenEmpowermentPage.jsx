@@ -2,6 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { navigateTo } from "../utils/navigation";
 import logo from "../assest/logo.jpeg";
+import women_empower from "../assest/women_empower.png";
+
+import CommunitySupportNetwork from "../assest/Community Support Network.png";
+import Education from "../assest/Education & Literacy.png";
+import Financial from "../assest/Financial Independence.png";
+import Health from "../assest/Health-Wellness-about.png";
+import Leadership from "../assest/Leadership & Advocacy.png";
+import vocational from "../assest/vocational training.png";
+
+import weFeaturedStory from "../assest/we_featured_story.jpg";
+
+
 
 /* ─── Placeholder image component ─── */
 function ImgPlaceholder({ name, className = "", style = {} }) {
@@ -76,7 +88,7 @@ const focusAreas = [
     description: "Hands-on skill programs in tailoring, handicrafts, beauty, catering, and digital literacy — building marketable expertise.",
     color: "#C2185B",
     bg: "#fce4ec",
-    image: "we_skill_training.jpg",
+    image: vocational,
     imageName: "Skill Training Photo",
   },
   {
@@ -91,7 +103,7 @@ const focusAreas = [
     description: "Training women to lead in their communities, speak up for rights, and take on decision-making roles with confidence.",
     color: "#7B1FA2",
     bg: "#f3e5f5",
-    image: "we_leadership.jpg",
+    image: Leadership,
     imageName: "Leadership Workshop Photo",
   },
   {
@@ -104,7 +116,7 @@ const focusAreas = [
     description: "Micro-finance, savings literacy, and self-help group programs enabling women to manage income and build assets.",
     color: "#00796B",
     bg: "#e0f2f1",
-    image: "we_finance.jpg",
+    image: Financial,
     imageName: "Financial Independence Photo",
   },
   {
@@ -118,7 +130,7 @@ const focusAreas = [
     description: "Awareness programs on maternal health, nutrition, hygiene, mental wellbeing, and access to healthcare services.",
     color: "#E64A19",
     bg: "#fbe9e7",
-    image: "we_health.jpg",
+    image: Health,
     imageName: "Health & Wellness Photo",
   },
   {
@@ -132,7 +144,7 @@ const focusAreas = [
     description: "Bridging the gender gap in education through literacy classes, scholarships, and re-enrollment support for women.",
     color: "#1565C0",
     bg: "#e3f2fd",
-    image: "we_education.jpg",
+    image: Education,
     imageName: "Education Photo",
   },
   {
@@ -146,7 +158,7 @@ const focusAreas = [
     description: "Peer networks, mentorship circles, and safe spaces where women connect, share experiences, and uplift each other.",
     color: "#F57F17",
     bg: "#fff8e1",
-    image: "we_community.jpg",
+    image: CommunitySupportNetwork,
     imageName: "Community Network Photo",
   },
 ];
@@ -263,7 +275,7 @@ export default function WomenEmpowermentPage() {
 
         {/* Hero image placeholder — replace with your actual hero image */}
         <motion.div
-          style={{ y: heroY, opacity: heroOpacity }}
+          style={{ y: heroY, opacity: heroOpacity ,backgroundImage: `url(${women_empower})`}}
           className="absolute inset-0 z-0"
         >
           <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[55%] overflow-hidden">
@@ -271,19 +283,14 @@ export default function WomenEmpowermentPage() {
               REPLACE THIS with:
               <img src={YOUR_HERO_IMAGE} alt="Women Empowerment" className="h-full w-full object-cover opacity-30" />
             */}
-            <div className="h-full w-full bg-gradient-to-l from-[#C2185B]/10 to-transparent flex items-center justify-center">
-              <ImgPlaceholder
-                name="Hero Banner Image&#10;(we_hero_banner.jpg)"
-                className="h-full w-full opacity-20"
-              />
-            </div>
+           
           </div>
         </motion.div>
 
         {/* Hero content */}
         <motion.div
           style={{ opacity: heroOpacity }}
-          className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-20"
+          className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-20 "
         >
           <div className="max-w-3xl">
             <Reveal delay={0}>
@@ -414,10 +421,11 @@ export default function WomenEmpowermentPage() {
                   {/* Image placeholder */}
                   <div className="relative h-48 w-full overflow-hidden flex-shrink-0">
                     {/* REPLACE with: <img src={import(`../assest/women-empowerment/${area.image}`)} ... /> */}
-                    <ImgPlaceholder
-                      name={area.imageName}
-                      className="h-full w-full"
-                    />
+                    <img
+  src={area.image}
+  alt={area.title}
+  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+/>
                     <div
                       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       style={{ background: `linear-gradient(to top, ${area.color}33, transparent)` }}
@@ -518,12 +526,13 @@ export default function WomenEmpowermentPage() {
             <Reveal direction="right">
               <div className="relative">
                 <div className="overflow-hidden rounded-3xl aspect-[4/3]">
-                  {/* REPLACE with: <img src={weFeaturedStory} alt="..." className="w-full h-full object-cover" /> */}
-                  <ImgPlaceholder
-                    name="Featured Story Photo&#10;(we_featured_story.jpg)"
-                    className="w-full h-full"
-                    style={{ minHeight: "320px" }}
-                  />
+                 <div className="w-full h-full min-h-[320px] overflow-hidden rounded-3xl">
+  <img
+    src={weFeaturedStory}
+    alt="Featured Story"
+    className="w-full h-full object-cover"
+  />
+</div>
                 </div>
                 {/* Floating accent card */}
                 <div className="absolute -bottom-6 -right-4 rounded-2xl bg-gradient-to-br from-[#E91E63] to-[#880E4F] px-6 py-4 shadow-xl">

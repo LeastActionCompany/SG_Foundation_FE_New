@@ -1,5 +1,7 @@
 import { Reveal, ImgBox } from "./shared";
 import { ArrowRight, Heart, HeartHandshake, Shield, Sparkles } from "lucide-react";
+import heroImage from "../../assest/ChildWomenWelfare/hero.png";
+import voiceImage from "../../assest/ChildWomenWelfare/voice.png";
 
 export default function HeroSection() {
   return (
@@ -56,7 +58,13 @@ export default function HeroSection() {
                 <div className="flex -space-x-3">
                   {[1, 2, 3].map((i) => (
                     <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
-                      <ImgBox label={`User`} className="w-full h-full !border-none" />
+                      <ImgBox
+                        src={voiceImage}
+                        alt="Child and women welfare changemaker"
+                        label="User"
+                        className="w-full h-full !border-none"
+                        style={{ transform: `scale(${1 + i * 0.03})` }}
+                      />
                     </div>
                   ))}
                 </div>
@@ -105,6 +113,8 @@ export default function HeroSection() {
               {/* Main organic circular image container */}
               <div className="w-[80%] h-[80%] rounded-full overflow-hidden shadow-2xl relative">
                 <ImgBox 
+                  src={heroImage}
+                  alt="Women and children participating in a welfare support activity"
                   label="Hero Welfare Image" 
                   className="w-full h-full absolute inset-0" 
                 />

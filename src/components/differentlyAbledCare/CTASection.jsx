@@ -1,6 +1,7 @@
 import { Reveal, ImgBox } from "./shared";
 import { Heart, ArrowRight } from "lucide-react";
 import { navigateTo } from "../../utils/navigation";
+import celebrationImage from "../../assest/care/community.jpeg";
 
 export default function CTASection() {
   return (
@@ -54,6 +55,8 @@ export default function CTASection() {
               <div className="absolute inset-y-0 right-0 w-[120%] p-6 py-10">
                 <div className="w-full h-full rounded-[32px] overflow-hidden bg-white relative shadow-[-20px_0_40px_rgba(0,0,0,0.3)]">
                    <ImgBox 
+                     src={celebrationImage}
+                     alt="Inclusive community celebration for differently abled care"
                      label="Community Celebration Image" 
                      className="w-full h-full object-cover" 
                    />

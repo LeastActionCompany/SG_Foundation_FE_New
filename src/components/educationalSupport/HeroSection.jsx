@@ -1,5 +1,6 @@
 import { Reveal, ImgBox } from "./shared";
 import { BookOpen, ArrowRight, Heart, Users } from "lucide-react";
+import education from "../../assest/education/hero.png";
 
 export default function HeroSection() {
   return (
@@ -74,10 +75,11 @@ export default function HeroSection() {
           <Reveal delay={200} className="relative">
             <div className="relative w-full aspect-[4/3] lg:aspect-[1.1] z-10 flex justify-center">
               {/* Main curved image */}
-              <ImgBox 
-                label="Hero Education Image" 
-                className="w-full h-full rounded-tl-full rounded-br-full rounded-tr-3xl rounded-bl-3xl shadow-2xl bg-white" 
-              />
+              <img
+  src={education}
+  alt="Education Hero"
+  className="w-full h-full rounded-tl-full rounded-br-full rounded-tr-3xl rounded-bl-3xl shadow-2xl bg-white" 
+/>
               
               {/* Floating Overlay Card */}
               <div className="absolute -bottom-6 right-0 bg-[#064E3B] p-5 rounded-2xl shadow-xl flex items-center gap-4 w-72 animate-bounce-slow">

@@ -1,6 +1,8 @@
 import { Reveal, ImgBox } from "./shared";
 import { Heart, Users, ShieldCheck, Handshake } from "lucide-react";
 import { navigateTo } from "../../utils/navigation";
+import heroImage from "../../assest/donate/hero.png";
+import supporterImage from "../../assest/donate/bethereson.png";
 
 export default function HeroSection() {
   return (
@@ -57,7 +59,13 @@ export default function HeroSection() {
                 <div className="flex -space-x-3">
                   {[1, 2, 3].map((i) => (
                     <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
-                      <ImgBox label={`User`} className="w-full h-full !border-none" />
+                      <ImgBox
+                        src={supporterImage}
+                        alt="Donation supporter"
+                        label="User"
+                        className="w-full h-full !border-none"
+                        style={{ transform: `scale(${1 + i * 0.03})` }}
+                      />
                     </div>
                   ))}
                 </div>
@@ -106,6 +114,8 @@ export default function HeroSection() {
               {/* Main organic circular image container */}
               <div className="w-full h-full bg-white rounded-full rounded-tr-[150px] rounded-bl-[150px] overflow-hidden shadow-2xl relative border-8 border-white">
                 <ImgBox 
+                  src={heroImage}
+                  alt="Community members donating educational supplies for children"
                   label="Hero Donation Image Placeholder" 
                   className="w-full h-full absolute inset-0" 
                 />

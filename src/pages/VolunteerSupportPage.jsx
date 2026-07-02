@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { navigateTo } from "../utils/navigation";
 import logo from "../assest/logo.jpeg";
+import volunteer_support from "../assest/Volunteer Support-bg.png";
+import vol from "../assest/vol.png";
+import volunteerHeroImage from "../assest/environment.png";
 
 /* ─────────────────────────────────────────
    Animated Counter
@@ -52,14 +55,15 @@ function Reveal({ children, delay = 0, y = 28, className = "" }) {
 function ImgBox({ src, alt, label, className = "", style = {}, children }) {
   return (
     <div
-      className={`relative overflow-hidden bg-gray-100 ${className}`}
-      style={style}
+      className={`relative overflow-hidden ${className}`}
+      style={{backgroundImage:"volunteer_support"}}
     >
       {src ? (
-        <img src={src} alt={alt} className="h-full w-full object-cover" />
+        <img src={volunteer_support} alt={alt} className="h-full w-full object-cover" />
       ) : (
         /* Clean gray placeholder — swap with real image by adding src prop */
-        <div className="flex h-full w-full items-end bg-gradient-to-br from-gray-100 to-gray-200 p-3">
+        <div className="flex h-full w-full items-end bg-gradient-to-br from-gray-100 to-gray-200 p-3"
+        >
           <span className="rounded bg-black/10 px-2 py-0.5 text-[10px] font-semibold text-gray-500">
             {label}
           </span>
@@ -330,11 +334,7 @@ export default function VolunteerSupportPage() {
                   Replace with your hero volunteer image:
                   <img src={heroVolunteerImage} alt="Volunteers working together" className="h-full w-full object-cover" />
                 */}
-                <ImgBox
-                  label="Hero Volunteer Image"
-                  className="h-full w-full"
-                  style={{ borderRadius: "inherit" }}
-                />
+                <img src={volunteer_support} alt="Volunteers working together" className="h-full w-full object-cover" />
                 {/* Green brush-stroke overlay */}
                 <div className="absolute inset-0 bg-gradient-to-tl from-[#1a6b3c]/20 via-transparent to-transparent pointer-events-none" />
               </div>
@@ -447,14 +447,16 @@ export default function VolunteerSupportPage() {
                 <div className="relative mt-10 flex justify-center">
                   {/* Large circle image */}
                   <div
-                    className="relative overflow-hidden shadow-xl"
-                    style={{ width: 240, height: 240, borderRadius: "50%" }}
-                  >
-                    {/*
-                      Replace with: <img src={volunteerGroupImage} alt="Volunteer group" className="h-full w-full object-cover" />
-                    */}
-                    <ImgBox label="Volunteer Group Image" className="h-full w-full" />
-                  </div>
+  className="relative overflow-hidden shadow-xl bg-cover bg-center"
+  style={{
+    width: 240,
+    height: 240,
+    borderRadius: "50%",
+    backgroundImage: `url(${vol})`,
+  }}
+>
+  {/* Remove ImgBox if you want only the background image */}
+</div>
 
                   {/* Floating text label */}
                   <motion.div
@@ -627,12 +629,16 @@ export default function VolunteerSupportPage() {
       {/* ══ SECTION 6 — FINAL CTA ══ */}
       <section id="vs-cta" className="relative overflow-hidden">
         {/* Full-bleed background image area */}
-        <div className="absolute inset-0 bg-gray-100">
+        <div className="absolute inset-0 " >
           {/*
             Replace with your emotional CTA background image:
             <img src={ctaBackgroundImage} alt="Volunteer impact background" className="h-full w-full object-cover" />
           */}
-          <ImgBox label="CTA Background Image — Large emotional volunteer scene" className="h-full w-full" />
+          <img
+  src={volunteerHeroImage}
+  alt="Volunteers Making an Impact"
+  className="h-full w-full object-cover"
+/>
         </div>
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a2512]/92 via-[#0a2512]/80 to-[#0a2512]/50" />

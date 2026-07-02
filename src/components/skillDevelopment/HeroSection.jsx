@@ -1,5 +1,6 @@
 import { Reveal, ImgBox } from "./shared";
 import { Settings, Users, ArrowRight } from "lucide-react";
+import bgimage from "../../assest/bgimage.png";
 
 export default function HeroSection() {
   return (
@@ -80,10 +81,13 @@ export default function HeroSection() {
           {/* Right Image Layout */}
           <Reveal delay={200} className="relative">
             <div className="relative w-full aspect-[4/3] lg:aspect-[1.1] z-10">
-              <ImgBox 
-                label="Hero Image (skill-hero.jpg)" 
-                className="w-full h-full rounded-l-[100px] rounded-r-3xl border-l-[16px] border-[#F59E0B] shadow-2xl" 
-              />
+              <div className="w-full h-full rounded-l-[100px] rounded-r-3xl border-l-[16px] border-[#F59E0B] shadow-2xl overflow-hidden">
+  <img
+    src={bgimage}
+    alt="Skill Development Hero"
+    className="w-full h-full object-cover"
+  />
+</div>
               
               {/* Floating Achievement Card */}
               <div className="absolute -bottom-6 right-8 bg-white p-5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-4 animate-bounce-slow">

@@ -1,35 +1,42 @@
 import { Reveal, ImgBox } from "./shared";
 import { Stethoscope, Activity, Baby, HeartPulse, Brain } from "lucide-react";
 
+import Genaral from "../../assest/healthcare/General.png";
+import mental from "../../assest/healthcare/mental.png";
+import rehabili from "../../assest/healthcare/rehabili.png";
+import tendal from "../../assest/healthcare/tendal.png";
+import women from "../../assest/healthcare/women.png";
+
+
 const programs = [
   {
     title: "General Health Checkups",
     desc: "Regular checkups to monitor and maintain good health.",
-    imgLabel: "program-general-checkup.jpg",
+    imgLabel: Genaral,
     icon: Stethoscope,
   },
   {
     title: "Dental Care",
     desc: "Oral health services for healthy smiles.",
-    imgLabel: "program-dental.jpg",
+    imgLabel: tendal,
     icon: Activity,
   },
   {
     title: "Women's Health",
     desc: "Specialized care for women at every stage of life.",
-    imgLabel: "program-women-health.jpg",
+    imgLabel: women,
     icon: Baby,
   },
   {
     title: "Rehabilitation Services",
     desc: "Physical therapy and recovery support for all.",
-    imgLabel: "program-rehabilitation.jpg",
+    imgLabel: rehabili,
     icon: HeartPulse,
   },
   {
     title: "Mental Health Support",
     desc: "Counseling and support for emotional well-being.",
-    imgLabel: "program-mental-health.jpg",
+    imgLabel: mental,
     icon: Brain,
   },
 ];
@@ -54,10 +61,11 @@ export default function HealthcarePrograms() {
               <Reveal key={prog.title} delay={i * 80}>
                 <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 h-full flex flex-col group relative">
                   <div className="h-44 w-full relative overflow-hidden">
-                    <ImgBox 
-                      label={prog.imgLabel} 
-                      className="w-full h-full transition-transform duration-500 group-hover:scale-105" 
-                    />
+                    <img
+  src={prog.imgLabel}
+  alt={prog.title}
+  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+/>
                     <div className="absolute -bottom-5 left-5 bg-[#0F9D94] text-white p-2.5 rounded-full shadow-lg border-2 border-white z-10">
                        <Icon className="w-5 h-5" />
                     </div>
