@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { navigateTo } from "../utils/navigation";
 import logo from "../assest/logo.jpeg";
-import volunteer_support from "../assest/Volunteer Support-bg.png";
+import volunteer_support from "../assest/VolunteerSupport-bg.png";
 import vol from "../assest/vol.png";
 import volunteerHeroImage from "../assest/environment.png";
 
