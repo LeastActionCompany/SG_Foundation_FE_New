@@ -8,6 +8,9 @@ import EducationalSupportPage from "./pages/EducationalSupport";
 import DifferentlyAbledCarePage from "./pages/DifferentlyAbledCare";
 import ChildWomenWelfarePage from "./pages/ChildWomenWelfare";
 import DonationAndSponsorshipPage from "./pages/DonationAndSponsorship";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import { ToastProvider } from "./components/ToastProvider";
 import { useEffect, useState } from "react";
 
@@ -35,26 +38,35 @@ export default function App() {
   const isChildWomenWelfareRoute = pathname === "/child-women-welfare";
   const isDonationSponsorshipRoute = pathname === "/donation-sponsorship";
 
+  const renderServicePage = (Page) => (
+    <div className="min-h-screen text-ink">
+      <Header />
+      <Page />
+      <Footer />
+      <FloatingWhatsApp />
+    </div>
+  );
+
   return (
     <ToastProvider>
       {isAdminRoute ? (
         <AdminPage />
       ) : isWomenEmpowermentRoute ? (
-        <WomenEmpowermentPage />
+        renderServicePage(WomenEmpowermentPage)
       ) : isVolunteerSupportRoute ? (
-        <VolunteerSupportPage />
+        renderServicePage(VolunteerSupportPage)
       ) : isSkillDevelopmentRoute ? (
-        <SkillDevelopmentPage />
+        renderServicePage(SkillDevelopmentPage)
       ) : isHealthCareRoute ? (
-        <HealthCarePage />
+        renderServicePage(HealthCarePage)
       ) : isEducationalSupportRoute ? (
-        <EducationalSupportPage />
+        renderServicePage(EducationalSupportPage)
       ) : isDifferentlyAbledCareRoute ? (
-        <DifferentlyAbledCarePage />
+        renderServicePage(DifferentlyAbledCarePage)
       ) : isChildWomenWelfareRoute ? (
-        <ChildWomenWelfarePage />
+        renderServicePage(ChildWomenWelfarePage)
       ) : isDonationSponsorshipRoute ? (
-        <DonationAndSponsorshipPage />
+        renderServicePage(DonationAndSponsorshipPage)
       ) : (
         <HomePage />
       )}
