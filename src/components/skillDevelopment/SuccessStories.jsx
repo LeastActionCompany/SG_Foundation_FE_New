@@ -1,24 +1,27 @@
 import { Reveal, ImgBox } from "./shared";
 import { ArrowRight } from "lucide-react";
+import priyaProfile from "../../assest/profile/PriyaSharma.png";
+import rahulProfile from "../../assest/profile/RahulVerma.png";
+import sunitaProfile from "../../assest/profile/SunitaDevi.png";
 
 const stories = [
   {
     name: "Priya Sharma",
     role: "Tailoring Graduate",
     quote: "The training I received gave me the confidence and skills to start my own tailoring business. Today, I earn with pride and support my family.",
-    imgLabel: "success-story-1.jpg",
+    img: priyaProfile,
   },
   {
     name: "Rahul Verma",
     role: "IT Support Executive",
     quote: "The computer course opened doors to a job opportunity I never imagined. Thank you SG Foundation!",
-    imgLabel: "success-story-2.jpg",
+    img: rahulProfile,
   },
   {
     name: "Sunita Devi",
     role: "Smart Farmer",
     quote: "I learned modern farming techniques and increased my yield. Now I train other farmers in my village.",
-    imgLabel: "success-story-3.jpg",
+    img: sunitaProfile,
   },
 ];
 
@@ -63,7 +66,7 @@ export default function SuccessStories() {
                   
                   <div className="flex items-center gap-4 mt-auto">
                     <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
-                      <ImgBox label={story.imgLabel} className="w-full h-full" />
+                      <ImgBox src={story.img} alt={`${story.name} profile`} className="w-full h-full" />
                     </div>
                     <div>
                       <p className="font-bold text-sm text-[#1F2937] leading-tight">
