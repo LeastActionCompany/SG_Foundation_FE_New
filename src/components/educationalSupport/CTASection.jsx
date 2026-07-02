@@ -17,7 +17,7 @@ export default function CTASection() {
                 <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-8 border border-white/20">
                   <GraduationCap className="w-8 h-8 text-white" strokeWidth={1.5} />
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight font-display">
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight font-display">
                   Help a Child Learn.<br />
                   Help a Child Grow.
                 </h2>

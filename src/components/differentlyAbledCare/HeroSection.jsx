@@ -23,7 +23,7 @@ export default function HeroSection() {
             </Reveal>
 
             <Reveal delay={100}>
-              <h1 className="text-[46px] md:text-[56px] lg:text-[68px] font-extrabold leading-[1.1] text-[#064E3B] mb-6 font-display">
+              <h1 className="text-[38px] md:text-[56px] lg:text-[68px] font-extrabold leading-[1.1] text-[#064E3B] mb-6 font-display">
                 Inclusion Today.<br />
                 <span className="text-[#0F766E]">Empowerment Forever.</span>
               </h1>

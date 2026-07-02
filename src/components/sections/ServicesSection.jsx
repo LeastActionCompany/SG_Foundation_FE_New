@@ -90,6 +90,17 @@ export default function ServicesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeProgram = programs[activeIndex];
 
+  const openProgram = (path) => {
+    if (window.location.pathname === path) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    navigateTo(path);
+    window.setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }, 0);
+  };
+
   const showPrevious = () => {
     setActiveIndex((current) => (current - 1 + programs.length) % programs.length);
   };
@@ -117,64 +128,63 @@ export default function ServicesSection() {
           light
         />
 
-        <div className="relative mt-12 flex items-center justify-center px-0 sm:px-14">
-          <button
-            type="button"
-            onClick={showPrevious}
-            aria-label="Show previous program"
-            className="absolute left-0 z-20 grid h-11 w-11 place-items-center rounded-full border border-[#17234F]/15 bg-white text-[#17234F] shadow-md transition hover:-translate-x-1 hover:bg-[#17234F] hover:text-white sm:h-12 sm:w-12"
-          >
-            <ChevronLeft />
-          </button>
+        <div className="mt-12 flex justify-center">
+  <article
+    key={activeProgram.title}
+    className="group relative flex flex-col md:block w-full max-w-5xl min-h-[520px] md:min-h-[310px] lg:min-h-[320px] overflow-hidden rounded-[28px] shadow-[0_20px_55px_rgba(23,36,78,0.18)] transition-transform duration-500 hover:-translate-y-1"
+    style={{
+      background: `linear-gradient(135deg, ${activeProgram.cardColor} 0%, ${activeProgram.cardColor} 62%, ${activeProgram.accent} 145%)`,
+    }}
+  >
+  {/* Mobile Image / Desktop Right Image */}
+  <div
+    className="
+      relative
+      w-full h-64
+      md:absolute md:inset-y-0 md:right-0 md:w-[51%] md:h-full
+      overflow-hidden
+      md:[border-radius:58%_0_0_43%/_48%_0_0_55%]
+    "
+  >
+    <img
+      src={activeProgram.image}
+      alt=""
+      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+    />
+  </div>
 
-          <article
-            key={activeProgram.title}
-            className="group relative min-h-[310px] w-full max-w-3xl overflow-hidden rounded-[28px] p-7 shadow-[0_20px_55px_rgba(23,36,78,0.18)] transition-transform duration-500 hover:-translate-y-1 sm:min-h-[300px] sm:p-10 lg:min-h-[320px] lg:p-11"
-            style={{
-              background: `linear-gradient(135deg, ${activeProgram.cardColor} 0%, ${activeProgram.cardColor} 62%, ${activeProgram.accent} 145%)`,
-            }}
-          >
-            <div className="relative z-10 flex h-full max-w-[60%] flex-col justify-center sm:max-w-[58%]">
-              <span className="mb-4 text-[10px] font-bold uppercase tracking-[0.18em] text-[#17234F]/70">
-                SG Foundation · {String(activeIndex + 1).padStart(2, "0")}
-              </span>
-              <h3 className="text-2xl font-bold leading-tight text-[#17234F] sm:text-4xl">
-                {activeProgram.title}
-              </h3>
-              <p className="mt-4 text-sm leading-relaxed text-[#17234F]/80 sm:text-[15px]">
-                {activeProgram.description}
-              </p>
-              {activeProgram.isPage ? (
-                <button onClick={() => navigateTo(activeProgram.link)} className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-[#17234F] px-5 py-2.5 text-[13px] font-bold text-white transition-all duration-300 hover:gap-3 hover:bg-[#111a3d]">
-                  Learn More <ArrowIcon />
-                </button>
-              ) : (
-                <a href={activeProgram.link} className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-[#17234F] px-5 py-2.5 text-[13px] font-bold text-white transition-all duration-300 hover:gap-3 hover:bg-[#111a3d]">
-                  Learn More <ArrowIcon />
-                </a>
-              )}
-            </div>
+  {/* Content */}
+  <div className="relative z-10 flex flex-1 flex-col justify-center p-7 sm:p-8 md:max-w-[58%] md:p-10 lg:p-11">
+    <span className="mb-4 text-[10px] font-bold uppercase tracking-[0.18em] text-[#17234F]/70">
+      SG Foundation · {String(activeIndex + 1).padStart(2, "0")}
+    </span>
 
-            <div className="absolute inset-y-0 right-0 w-[51%] overflow-hidden" style={{ borderRadius: "58% 0 0 43% / 48% 0 0 55%" }}>
-              <img src={activeProgram.image} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            </div>
-          </article>
+    <h3 className="text-2xl font-bold leading-tight text-[#17234F] sm:text-3xl md:text-4xl">
+      {activeProgram.title}
+    </h3>
 
-          <button
-            type="button"
-            onClick={showNext}
-            aria-label="Show next program"
-            className="absolute right-0 z-20 grid h-11 w-11 place-items-center rounded-full border border-[#17234F]/15 bg-white text-[#17234F] shadow-md transition hover:translate-x-1 hover:bg-[#17234F] hover:text-white sm:h-12 sm:w-12"
-          >
-            <ChevronRight />
-          </button>
+    <p className="mt-4 text-sm leading-relaxed text-[#17234F]/80 sm:text-[15px]">
+      {activeProgram.description}
+    </p>
 
-          <div className="absolute -bottom-7 left-1/2 flex -translate-x-1/2 gap-2" aria-label={`Program ${activeIndex + 1} of ${programs.length}`}>
-            {programs.map((program, index) => (
-              <button key={program.title} type="button" onClick={() => setActiveIndex(index)} aria-label={`Show ${program.title}`} className={`h-2 rounded-full transition-all ${index === activeIndex ? "w-6 bg-[#FFDD00]" : "w-2 bg-[#FFDD00]/25 hover:bg-[#17234F]/50"}`} />
-            ))}
-          </div>
-        </div>
+    {activeProgram.isPage ? (
+      <button
+        onClick={() => openProgram(activeProgram.link)}
+        className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-[#17234F] px-5 py-2.5 text-[13px] font-bold text-white transition-all duration-300 hover:gap-3 hover:bg-[#111a3d]"
+      >
+        Learn More <ArrowIcon />
+      </button>
+    ) : (
+      <a
+        href={activeProgram.link}
+        className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-[#17234F] px-5 py-2.5 text-[13px] font-bold text-white transition-all duration-300 hover:gap-3 hover:bg-[#111a3d]"
+      >
+        Learn More <ArrowIcon />
+      </a>
+    )}
+  </div>
+</article>
+</div>
       </div>
     </section>
   );

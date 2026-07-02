@@ -223,40 +223,68 @@ export default function WomenEmpowermentPage() {
     <div className="min-h-screen bg-white overflow-x-hidden">
 
       {/* ── NAV BAR ── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-rose-100/60 shadow-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-          <button
-            onClick={() => navigateTo("/")}
-            className="flex items-center gap-3 group"
-          >
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md ring-2 ring-rose-100 group-hover:ring-rose-300 transition-all overflow-hidden">
-              <img src={logo} alt="SG Foundation" className="h-full w-full object-contain p-1" />
-            </div>
-            <div className="leading-tight">
-              <p className="text-sm font-bold text-[#16203b]">SG Foundation</p>
-              <p className="text-[10px] font-semibold text-rose-400 uppercase tracking-widest">Spread Goodness</p>
-            </div>
-          </button>
+     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-pink-50 bg-white/95 backdrop-blur-xl shadow-sm transition-all">
+  <div className="mx-auto flex max-w-7xl items-center justify-between px-3 py-3 sm:px-6 lg:px-8">
 
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => navigateTo("/")}
-              className="flex items-center gap-1.5 rounded-full border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 transition hover:bg-gray-50 hover:text-gray-900"
-            >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                <path d="M19 12H5M12 5l-7 7 7 7" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              Back to Home
-            </button>
-            <a
-              href="#we-get-involved"
-              className="rounded-full bg-gradient-to-r from-[#C2185B] to-[#880E4F] px-5 py-2 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
-            >
-              Get Involved
-            </a>
-          </div>
-        </div>
-      </nav>
+    {/* Logo */}
+    <button
+      onClick={() => navigateTo("/")}
+      className="flex items-center gap-2 sm:gap-3"
+    >
+      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-full bg-white p-1 shadow-sm ring-2 ring-[#9D174D]/10 transition-all group-hover:ring-[#9D174D]/30">
+        <img
+          src={logo}
+          alt="SG Foundation"
+          className="h-full w-full object-contain"
+        />
+      </div>
+
+      <div className="leading-tight text-left">
+        <p className="whitespace-nowrap text-xs font-bold text-[#4C1D95] sm:text-sm">
+          SG Foundation
+        </p>
+        <p className="hidden text-[10px] font-semibold uppercase tracking-widest text-[#9D174D] sm:block">
+          Spread Goodness
+        </p>
+      </div>
+    </button>
+
+    {/* Right Side */}
+    <div className="flex items-center gap-2 sm:gap-4">
+
+      {/* Home Button - Desktop Only */}
+      <button
+        onClick={() => navigateTo("/")}
+        className="hidden md:flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold text-gray-600 transition hover:bg-gray-50 hover:text-[#9D174D]"
+      >
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+        >
+          <path
+            d="M19 12H5M12 5l-7 7 7 7"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        Home
+      </button>
+
+      {/* CTA Button */}
+      <a
+        href="#cww-cta"
+        className="whitespace-nowrap rounded-full bg-[#9D174D] px-3 py-2 text-xs font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-[#831843] hover:shadow-lg sm:px-6 sm:py-2.5 sm:text-sm"
+      >
+        Get Involved
+      </a>
+
+    </div>
+  </div>
+</nav>
 
       {/* ── HERO ── */}
       <section ref={heroRef} className="relative min-h-[100svh] flex items-center overflow-hidden">
@@ -587,56 +615,93 @@ export default function WomenEmpowermentPage() {
             </div>
           </Reveal>
 
-          <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={t.name}
-                initial={false}
-                animate={{ opacity: i === activeTestimonial ? 1 : 0, x: i === activeTestimonial ? 0 : 30 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute inset-0 flex flex-col justify-center p-8 md:p-14"
-                style={{ pointerEvents: i === activeTestimonial ? "auto" : "none" }}
-              >
-                <svg className="mb-6 text-rose-200" width="40" height="32" viewBox="0 0 40 32" fill="currentColor">
-                  <path d="M0 32V19.2C0 8.533 6.4 2.133 19.2 0l2.4 4C14.4 5.6 10.667 9.067 10 14.4H18V32H0zm22 0V19.2C22 8.533 28.4 2.133 41.2 0l2.4 4C36.4 5.6 32.667 9.067 32 14.4H40V32H22z" />
-                </svg>
-                <p className="text-lg leading-relaxed text-gray-700 md:text-xl font-medium italic">"{t.quote}"</p>
-                <div className="mt-8 flex items-center gap-4">
-                  <div
-                    className="flex h-12 w-12 items-center justify-center rounded-full text-lg font-bold text-white"
-                    style={{ background: `linear-gradient(135deg, ${t.color}, ${t.color}bb)` }}
-                  >
-                    {t.initial}
-                  </div>
-                  <div>
-                    <p className="font-bold text-[#16203b]">{t.name}</p>
-                    <p className="text-sm text-gray-400">{t.role}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-            {/* Ghost height */}
-            <div className="invisible p-8 md:p-14">
-              <div className="mb-6 h-8 w-10" />
-              <p className="text-xl italic">placeholder height</p>
-              <div className="mt-8 h-12" />
-            </div>
+          <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl min-h-[500px] sm:min-h-[450px] md:min-h-[360px]">
+  {testimonials.map((t, i) => (
+    <motion.div
+      key={t.name}
+      initial={false}
+      animate={{
+        opacity: i === activeTestimonial ? 1 : 0,
+        x: i === activeTestimonial ? 0 : 30,
+      }}
+      transition={{
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="absolute inset-0 flex flex-col justify-center p-6 sm:p-8 md:p-14"
+      style={{
+        pointerEvents: i === activeTestimonial ? "auto" : "none",
+      }}
+    >
+      <svg
+        className="mb-6 text-rose-200"
+        width="40"
+        height="32"
+        viewBox="0 0 40 32"
+        fill="currentColor"
+      >
+        <path d="M0 32V19.2C0 8.533 6.4 2.133 19.2 0l2.4 4C14.4 5.6 10.667 9.067 10 14.4H18V32H0zm22 0V19.2C22 8.533 28.4 2.133 41.2 0l2.4 4C36.4 5.6 32.667 9.067 32 14.4H40V32H22z" />
+      </svg>
 
-            {/* Dots */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveTestimonial(i)}
-                  className="h-2 rounded-full transition-all duration-300"
-                  style={{
-                    width: i === activeTestimonial ? "24px" : "8px",
-                    background: i === activeTestimonial ? "#E91E63" : "#f48fb1",
-                  }}
-                />
-              ))}
-            </div>
-          </div>
+      <p className="text-base sm:text-lg md:text-xl leading-relaxed font-medium italic text-gray-700">
+        "{t.quote}"
+      </p>
+
+      <div className="mt-8 flex items-center gap-4">
+        <div
+          className="flex h-12 w-12 items-center justify-center rounded-full text-lg font-bold text-white"
+          style={{
+            background: `linear-gradient(135deg, ${t.color}, ${t.color}bb)`,
+          }}
+        >
+          {t.initial}
+        </div>
+
+        <div>
+          <p className="font-bold text-[#16203b]">{t.name}</p>
+          <p className="text-sm text-gray-400">{t.role}</p>
+        </div>
+      </div>
+    </motion.div>
+  ))}
+
+  {/* Ghost Height */}
+  <div className="invisible p-6 sm:p-8 md:p-14">
+    <svg width="40" height="32" className="mb-6">
+      <path d="M0 32V19.2C0 8.533 6.4 2.133 19.2 0l2.4 4C14.4 5.6 10.667 9.067 10 14.4H18V32H0zm22 0V19.2C22 8.533 28.4 2.133 41.2 0l2.4 4C36.4 5.6 32.667 9.067 32 14.4H40V32H22z" />
+    </svg>
+
+    <p className="text-base sm:text-lg md:text-xl leading-relaxed italic">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
+      dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit.
+    </p>
+
+    <div className="mt-8 flex items-center gap-4">
+      <div className="h-12 w-12 rounded-full" />
+      <div>
+        <div className="h-5 w-32 rounded" />
+        <div className="mt-2 h-4 w-24 rounded" />
+      </div>
+    </div>
+  </div>
+
+  {/* Dots */}
+  <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2">
+    {testimonials.map((_, i) => (
+      <button
+        key={i}
+        onClick={() => setActiveTestimonial(i)}
+        className="h-2 rounded-full transition-all duration-300"
+        style={{
+          width: i === activeTestimonial ? "24px" : "8px",
+          background:
+            i === activeTestimonial ? "#E91E63" : "#f48fb1",
+        }}
+      />
+    ))}
+  </div>
+</div>
         </div>
       </section>
 

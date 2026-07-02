@@ -19,7 +19,7 @@ export default function CTASection() {
                 <div className="w-16 h-16 rounded-full border-2 border-[#0F766E] flex items-center justify-center mb-8">
                   <Heart className="w-8 h-8 text-[#0F766E]" />
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight font-display">
+                <h2 className="text-2xl md:text-5xl font-bold text-white mb-6 leading-tight font-display">
                   Together, We Build an<br /> Inclusive Tomorrow.
                 </h2>
               </Reveal>

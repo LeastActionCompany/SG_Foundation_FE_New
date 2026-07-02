@@ -77,53 +77,111 @@ export default function HeroSection() {
           </div>
 
           {/* Right Image Layout */}
-          <Reveal delay={200} className="relative h-full flex items-center justify-center">
-            <div className="relative w-full max-w-lg aspect-square z-10">
-              
-              {/* Floating Cards */}
-              <div className="absolute top-0 -right-8 bg-white p-4 rounded-2xl shadow-xl flex gap-4 w-56 animate-bounce-slow z-20">
-                <div className="bg-emerald-50 text-emerald-600 p-2 rounded-full h-fit">
-                  <Heart className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-[#0F6B4B] text-sm">Make an Impact</h4>
-                  <p className="text-[10px] text-gray-500 mt-1">Your support creates real change in lives.</p>
-                </div>
-              </div>
+        <Reveal delay={200} className="relative flex h-full items-center justify-center">
+  <div className="relative w-full max-w-lg">
 
-              <div className="absolute top-1/3 -left-12 bg-white p-4 rounded-2xl shadow-xl flex gap-4 w-56 animate-bounce-slow delay-150 z-20">
-                <div className="bg-amber-50 text-amber-500 p-2 rounded-full h-fit">
-                  <ShieldCheck className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-[#0F6B4B] text-sm">Trust & Transparency</h4>
-                  <p className="text-[10px] text-gray-500 mt-1">We ensure responsible use of contributions.</p>
-                </div>
-              </div>
+    {/* ================= Desktop Floating Cards ================= */}
+    <div className="hidden md:block">
+      <div className="absolute top-0 -right-8 z-20 flex w-56 gap-4 rounded-2xl bg-white p-4 shadow-xl animate-bounce-slow">
+        <div className="h-fit rounded-full bg-emerald-50 p-2 text-emerald-600">
+          <Heart className="w-5 h-5" />
+        </div>
+        <div>
+          <h4 className="text-sm font-bold text-[#0F6B4B]">Make an Impact</h4>
+          <p className="mt-1 text-[10px] text-gray-500">
+            Your support creates real change in lives.
+          </p>
+        </div>
+      </div>
 
-              <div className="absolute bottom-4 -right-4 bg-white p-4 rounded-2xl shadow-xl flex gap-4 w-56 animate-bounce-slow delay-300 z-20">
-                <div className="bg-blue-50 text-blue-600 p-2 rounded-full h-fit">
-                  <Handshake className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-[#0F6B4B] text-sm">Together, We Can</h4>
-                  <p className="text-[10px] text-gray-500 mt-1">Small acts of kindness make a difference.</p>
-                </div>
-              </div>
+      <div className="absolute top-1/3 -left-12 z-20 flex w-56 gap-4 rounded-2xl bg-white p-4 shadow-xl animate-bounce-slow delay-150">
+        <div className="h-fit rounded-full bg-amber-50 p-2 text-amber-500">
+          <ShieldCheck className="w-5 h-5" />
+        </div>
+        <div>
+          <h4 className="text-sm font-bold text-[#0F6B4B]">
+            Trust & Transparency
+          </h4>
+          <p className="mt-1 text-[10px] text-gray-500">
+            We ensure responsible use of contributions.
+          </p>
+        </div>
+      </div>
 
-              {/* Main organic circular image container */}
-              <div className="w-full h-full bg-white rounded-full rounded-tr-[150px] rounded-bl-[150px] overflow-hidden shadow-2xl relative border-8 border-white">
-                <ImgBox 
-                  src={heroImage}
-                  alt="Community members donating educational supplies for children"
-                  label="Hero Donation Image Placeholder" 
-                  className="w-full h-full absolute inset-0" 
-                />
-              </div>
-              
-            </div>
-          </Reveal>
+      <div className="absolute bottom-4 -right-4 z-20 flex w-56 gap-4 rounded-2xl bg-white p-4 shadow-xl animate-bounce-slow delay-300">
+        <div className="h-fit rounded-full bg-blue-50 p-2 text-blue-600">
+          <Handshake className="w-5 h-5" />
+        </div>
+        <div>
+          <h4 className="text-sm font-bold text-[#0F6B4B]">
+            Together, We Can
+          </h4>
+          <p className="mt-1 text-[10px] text-gray-500">
+            Small acts of kindness make a difference.
+          </p>
+        </div>
+      </div>
+    </div>
 
+    {/* ================= Main Image ================= */}
+    <div className="aspect-square w-full overflow-hidden rounded-full rounded-tr-[150px] rounded-bl-[150px] border-8 border-white bg-white shadow-2xl">
+      <ImgBox
+        src={heroImage}
+        alt="Community members donating educational supplies for children"
+        label="Hero Donation Image Placeholder"
+        className="h-full w-full"
+      />
+    </div>
+
+    {/* ================= Mobile Cards ================= */}
+    <div className="mt-6 flex flex-col gap-4 md:hidden">
+
+      <div className="flex gap-4 rounded-2xl bg-white p-4 shadow-lg">
+        <div className="h-fit rounded-full bg-emerald-50 p-2 text-emerald-600">
+          <Heart className="w-5 h-5" />
+        </div>
+        <div>
+          <h4 className="text-sm font-bold text-[#0F6B4B]">
+            Make an Impact
+          </h4>
+          <p className="mt-1 text-xs text-gray-500">
+            Your support creates real change in lives.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex gap-4 rounded-2xl bg-white p-4 shadow-lg">
+        <div className="h-fit rounded-full bg-amber-50 p-2 text-amber-500">
+          <ShieldCheck className="w-5 h-5" />
+        </div>
+        <div>
+          <h4 className="text-sm font-bold text-[#0F6B4B]">
+            Trust & Transparency
+          </h4>
+          <p className="mt-1 text-xs text-gray-500">
+            We ensure responsible use of contributions.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex gap-4 rounded-2xl bg-white p-4 shadow-lg">
+        <div className="h-fit rounded-full bg-blue-50 p-2 text-blue-600">
+          <Handshake className="w-5 h-5" />
+        </div>
+        <div>
+          <h4 className="text-sm font-bold text-[#0F6B4B]">
+            Together, We Can
+          </h4>
+          <p className="mt-1 text-xs text-gray-500">
+            Small acts of kindness make a difference.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</Reveal>
         </div>
       </div>
     </section>

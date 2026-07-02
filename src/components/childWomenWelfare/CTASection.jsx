@@ -14,7 +14,7 @@ export default function CTASection() {
             {/* Left Content */}
             <div className="p-12 lg:p-20">
               <Reveal delay={0}>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight font-display">
+                <h2 className="text-2xl md:text-5xl font-bold text-white mb-6 leading-tight font-display">
                   Together, We Nurture.<br />
                   Together, We Transform.
                 </h2>

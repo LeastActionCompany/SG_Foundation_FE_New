@@ -1,7 +1,19 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { navigationLinks } from "../data/siteContent";
+import { navigateTo } from "../utils/navigation";
 import logo from "../assest/logo.jpeg";
+
+const serviceMenuItems = [
+  { title: "Women Empowerment", link: "/women-empowerment" },
+  { title: "Volunteer Support", link: "/volunteer-support" },
+  { title: "Skill Development", link: "/skill-development" },
+  { title: "Health Care", link: "/health-care" },
+  { title: "Educational Support", link: "/educational-support" },
+  { title: "Differently Abled Care", link: "/differently-abled-care" },
+  { title: "Child & Women Welfare", link: "/child-women-welfare" },
+  { title: "Donation & Sponsorship", link: "/donation-sponsorship" },
+];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -9,6 +21,16 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState("home");
 
   const closeMenu = () => setOpen(false);
+  const goToService = (path) => {
+    if (window.location.pathname === path) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    navigateTo(path);
+    window.setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }, 0);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,16 +107,50 @@ export default function Header() {
           {/* Desktop Nav */}
           <nav className="hidden items-center gap-8 lg:flex">
             {navigationLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className={`relative text-sm font-bold tracking-wide transition-all duration-300 py-2 hover:-translate-y-0.5 ${
-                  scrolled ? "text-ink/80 hover:text-primary" : "text-white/90 hover:text-white"
-                }`}
-              >
-                {link.label}
-                <span className={`absolute bottom-0 left-0 h-[2px] w-0 transition-all duration-300 hover:w-full ${scrolled ? 'bg-primary' : 'bg-gold'}`} style={{ width: '0%' }} onMouseEnter={(e) => e.currentTarget.style.width = '100%'} onMouseLeave={(e) => e.currentTarget.style.width = '0%'} />
-              </a>
+              link.label === "Services" ? (
+                <div key={link.label} className="group relative py-2">
+                  <a
+                    href={link.href}
+                    className={`relative text-sm font-bold tracking-wide transition-all duration-300 hover:-translate-y-0.5 ${
+                      scrolled ? "text-ink/80 hover:text-primary" : "text-white/90 hover:text-white"
+                    }`}
+                  >
+                    {link.label}
+                    <span className={`absolute -bottom-2 left-0 h-[2px] w-0 transition-all duration-300 group-hover:w-full ${scrolled ? "bg-primary" : "bg-gold"}`} />
+                  </a>
+
+                  <div className="pointer-events-none absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 translate-y-4 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:translate-y-2 group-hover:opacity-100">
+                    <div className="overflow-hidden rounded-2xl border border-white/70 bg-white/95 p-2 shadow-[0_20px_60px_rgba(15,23,42,0.16)] backdrop-blur-xl">
+                      {serviceMenuItems.map((service, index) => {
+                        return (
+                          <button
+                            key={service.title}
+                            type="button"
+                            onClick={() => goToService(service.link)}
+                            className="block w-full translate-y-2 rounded-xl px-4 py-2.5 text-left opacity-0 transition-all duration-300 hover:bg-primary/5 group-hover:translate-y-0 group-hover:opacity-100"
+                            style={{ transitionDelay: `${index * 35}ms` }}
+                          >
+                            <span className="block text-sm font-bold text-[#0F6B4B]">
+                              {service.title}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={`relative text-sm font-bold tracking-wide transition-all duration-300 py-2 hover:-translate-y-0.5 ${
+                    scrolled ? "text-ink/80 hover:text-primary" : "text-white/90 hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                  <span className={`absolute bottom-0 left-0 h-[2px] w-0 transition-all duration-300 hover:w-full ${scrolled ? 'bg-primary' : 'bg-gold'}`} style={{ width: '0%' }} onMouseEnter={(e) => e.currentTarget.style.width = '100%'} onMouseLeave={(e) => e.currentTarget.style.width = '0%'} />
+                </a>
+              )
             ))}
 
             <a
@@ -122,17 +178,44 @@ export default function Header() {
           <div className="flex h-full flex-col p-6 pt-20">
             <nav className="flex flex-col gap-2">
               {navigationLinks.map((link, i) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={closeMenu}
-                  style={{ transitionDelay: open ? `${i * 60}ms` : "0ms" }}
-                  className={`rounded-xl px-4 py-3.5 text-base font-medium text-ink transition-all duration-300 hover:bg-primary/5 hover:text-primary hover:pl-6 ${
-                    open ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
-                  }`}
-                >
-                  {link.label}
-                </a>
+                link.label === "Services" ? (
+                  <div key={link.label} className={`${open ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"} transition-all duration-300`} style={{ transitionDelay: open ? `${i * 60}ms` : "0ms" }}>
+                    <a
+                      href={link.href}
+                      onClick={closeMenu}
+                      className="block rounded-xl px-4 py-3.5 text-base font-medium text-ink transition-all duration-300 hover:bg-primary/5 hover:text-primary hover:pl-6"
+                    >
+                      {link.label}
+                    </a>
+                    <div className="ml-3 mt-1 flex flex-col gap-1 border-l border-primary/10 pl-3">
+                      {serviceMenuItems.map((service) => (
+                        <button
+                          key={service.title}
+                          type="button"
+                          onClick={() => {
+                            closeMenu();
+                            goToService(service.link);
+                          }}
+                          className="rounded-lg px-3 py-2 text-left text-sm font-medium text-ink/75 transition hover:bg-primary/5 hover:text-primary"
+                        >
+                          {service.title}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={closeMenu}
+                    style={{ transitionDelay: open ? `${i * 60}ms` : "0ms" }}
+                    className={`rounded-xl px-4 py-3.5 text-base font-medium text-ink transition-all duration-300 hover:bg-primary/5 hover:text-primary hover:pl-6 ${
+                      open ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                )
               ))}
               <a
                 href="#donate"
