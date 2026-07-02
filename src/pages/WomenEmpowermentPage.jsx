@@ -9,7 +9,7 @@ import Education from "../assest/EducationLiteracy.png";
 import Financial from "../assest/FinancialIndependence.png";
 import Health from "../assest/Health-Wellness-about.png";
 import Leadership from "../assest/LeadershipAdvocacy.png";
-import vocational from "../assest/vocationaltraining.png";
+import vocational from "../assest/VocationalTraining.png";
 
 import weFeaturedStory from "../assest/we_featured_story.jpg";
 
