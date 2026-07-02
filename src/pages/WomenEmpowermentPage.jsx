@@ -4,12 +4,12 @@ import { navigateTo } from "../utils/navigation";
 import logo from "../assest/logo.jpeg";
 import women_empower from "../assest/women_empower.png";
 
-import CommunitySupportNetwork from "../assest/Community Support Network.png";
-import Education from "../assest/Education & Literacy.png";
-import Financial from "../assest/Financial Independence.png";
+import CommunitySupportNetwork from "../assest/CommunitySupportNetwork.png";
+import Education from "../assest/EducationLiteracy.png";
+import Financial from "../assest/FinancialIndependence.png";
 import Health from "../assest/Health-Wellness-about.png";
-import Leadership from "../assest/Leadership & Advocacy.png";
-import vocational from "../assest/vocational training.png";
+import Leadership from "../assest/LeadershipAdvocacy.png";
+import vocational from "../assest/vocationaltraining.png";
 
 import weFeaturedStory from "../assest/we_featured_story.jpg";
 

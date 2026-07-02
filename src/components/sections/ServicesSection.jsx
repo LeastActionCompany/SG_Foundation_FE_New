@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { navigateTo } from "../../utils/navigation";
 import SectionHeader from "../SectionHeader";
 
-import imgWomenEmpowerment from "../../assest/women empowerment.png";
-import imgVolunteerSupport from "../../assest/volunteer support.png";
-import imgSkillDevelopment from "../../assest/Skill Development.png";
-import imgHealthCare from "../../assest/Health Care.png";
-import imgEducationalSupport from "../../assest/Educational Support.png";
-import imgDifferentlyAbled from "../../assest/Differently Abled Care.png";
-import imgChildWelfare from "../../assest/Child & Women Welfare.png";
-import imgDonation from "../../assest/Donation & Sponsorship.png";
+import imgWomenEmpowerment from "../../assest/womenempowerment.png";
+import imgVolunteerSupport from "../../assest/volunteersupport.png";
+import imgSkillDevelopment from "../../assest/SkillDevelopment.png";
+import imgHealthCare from "../../assest/HealthCare.png";
+import imgEducationalSupport from "../../assest/EducationalSupport.png";
+import imgDifferentlyAbled from "../../assest/DifferentlyAbledCare.png";
+import imgChildWelfare from "../../assest/ChildWomenWelfare.png";
+import imgDonation from "../../assest/DonationSponsorship.png";
 
 const programs = [
   {
