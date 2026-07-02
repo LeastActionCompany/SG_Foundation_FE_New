@@ -1,5 +1,6 @@
 import { Reveal, ImgBox } from "./shared";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import voiceImage from "../../assest/ChildWomenWelfare/voice.png";
 
 export default function TestimonialSection() {
   return (
@@ -25,7 +26,12 @@ export default function TestimonialSection() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0 bg-gray-100">
-                      <ImgBox label="User" className="w-full h-full !border-none" />
+                      <ImgBox
+                        src={voiceImage}
+                        alt="Social worker sharing a child and women welfare testimonial"
+                        label="User"
+                        className="w-full h-full !border-none"
+                      />
                     </div>
                     <div>
                       <p className="font-bold text-[#4C1D95]">Priya Mehta</p>
@@ -53,10 +59,16 @@ export default function TestimonialSection() {
           </div>
 
           <div className="lg:col-span-1 hidden lg:block">
-             <div className="w-full h-full min-h-[300px] flex items-center justify-center opacity-[0.03] pointer-events-none text-[#4C1D95]">
-               {/* Floral SVG placeholder */}
-               <svg viewBox="0 0 100 100" fill="currentColor" className="w-64 h-64"><path d="M50 0C50 0 60 30 50 50C40 30 50 0 50 0ZM50 100C50 100 60 70 50 50C40 70 50 100 50 100ZM0 50C0 50 30 60 50 50C30 40 0 50 0 50ZM100 50C100 50 70 60 50 50C70 40 100 50 100 50Z"/></svg>
-             </div>
+            <Reveal delay={250} className="relative">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[40px] bg-white p-3 shadow-xl border border-emerald-50">
+                <ImgBox
+                  src={voiceImage}
+                  alt="Community worker supporting women and children"
+                  label="Voice of Change Image"
+                  className="w-full h-full rounded-[32px]"
+                />
+              </div>
+            </Reveal>
           </div>
           
         </div>

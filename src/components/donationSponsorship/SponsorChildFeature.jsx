@@ -1,6 +1,7 @@
 import { Reveal, ImgBox } from "./shared";
 import { BookOpen, Apple, HeartPulse, ShieldCheck, Heart } from "lucide-react";
 import { navigateTo } from "../../utils/navigation";
+import childImage from "../../assest/donate/child.png";
 
 export default function SponsorChildFeature() {
   return (
@@ -14,6 +15,8 @@ export default function SponsorChildFeature() {
             <Reveal className="lg:col-span-1 h-full">
                <div className="w-full aspect-square lg:aspect-auto lg:h-full rounded-[32px] overflow-hidden bg-[#F4ECDC] relative border border-[#F4ECDC]">
                  <ImgBox 
+                   src={childImage}
+                   alt="Sponsored child arriving at school"
                    label="Sponsor a Child Image Placeholder" 
                    className="w-full h-full" 
                  />

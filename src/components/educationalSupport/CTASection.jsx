@@ -1,6 +1,7 @@
 import { Reveal, ImgBox } from "./shared";
 import { Heart, ArrowRight, GraduationCap } from "lucide-react";
 import { navigateTo } from "../../utils/navigation";
+import helpAChild from "../../assest/education/helpachild.png";
 
 export default function CTASection() {
   return (
@@ -16,7 +17,7 @@ export default function CTASection() {
                 <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-8 border border-white/20">
                   <GraduationCap className="w-8 h-8 text-white" strokeWidth={1.5} />
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight font-display">
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight font-display">
                   Help a Child Learn.<br />
                   Help a Child Grow.
                 </h2>
@@ -53,7 +54,8 @@ export default function CTASection() {
               <div className="absolute inset-y-0 right-0 w-full p-6">
                 <div className="w-full h-full rounded-[32px] overflow-hidden bg-white relative">
                    <ImgBox 
-                     label="Children Smiling Image" 
+                     src={helpAChild}
+                     alt="Child receiving learning support"
                      className="w-full h-full object-cover rounded-[32px]" 
                    />
                 </div>

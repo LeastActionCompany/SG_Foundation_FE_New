@@ -1,5 +1,6 @@
 import { Reveal, ImgBox } from "./shared";
 import { HeartPulse, ArrowRight, Heart, Shield, Users } from "lucide-react";
+import hero from "../../assest/healthcare/hero.jpg";
 
 export default function HeroSection() {
   return (
@@ -81,10 +82,12 @@ export default function HeroSection() {
           <Reveal delay={200} className="relative">
             <div className="relative w-full aspect-[4/3] lg:aspect-[1.1] z-10 flex justify-end">
               {/* Main large image */}
-              <ImgBox 
-                label="healthcare-hero-main.jpg" 
-                className="w-full h-full rounded-[40px] rounded-tl-[120px] rounded-br-[120px] shadow-2xl border-4 border-white object-cover" 
-              />
+              
+<img
+  src={hero}
+  alt="Healthcare Hero"
+  className="w-full h-full rounded-[40px] rounded-tl-[120px] rounded-br-[120px] shadow-2xl border-4 border-white object-cover"
+/>
               
               {/* Floating Healthcare Card */}
               <div className="absolute -bottom-10 -right-4 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 flex flex-col gap-4 animate-bounce-slow">

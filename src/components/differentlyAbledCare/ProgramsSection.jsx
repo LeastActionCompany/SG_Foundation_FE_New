@@ -1,10 +1,17 @@
 import { Reveal, ImgBox } from "./shared";
 import { Baby, BookOpen, Wrench, Activity, Users } from "lucide-react";
+import earlyInterventionImage from "../../assest/care/img1.png";
+import specialEducationImage from "../../assest/care/img2.png";
+import vocationalTrainingImage from "../../assest/care/img3.png";
+import rehabilitationImage from "../../assest/care/img5.png";
+import communityImage from "../../assest/care/img4.png";
 
 const programs = [
   {
     title: "Early Intervention",
     desc: "Support children with disabilities through early therapy and guidance.",
+    image: earlyInterventionImage,
+    alt: "Child receiving guided early intervention care",
     imgLabel: "Early Intervention Image",
     icon: Baby,
     color: "text-emerald-600",
@@ -12,6 +19,8 @@ const programs = [
   {
     title: "Special Education",
     desc: "Inclusive education programs tailored to individual needs.",
+    image: specialEducationImage,
+    alt: "Inclusive classroom with differently abled children learning together",
     imgLabel: "Special Education Image",
     icon: BookOpen,
     color: "text-amber-600",
@@ -19,6 +28,8 @@ const programs = [
   {
     title: "Vocational Training",
     desc: "Practical training for independence and employment.",
+    image: vocationalTrainingImage,
+    alt: "Vocational training session with computer skills coaching",
     imgLabel: "Vocational Training Image",
     icon: Wrench,
     color: "text-rose-600",
@@ -26,6 +37,8 @@ const programs = [
   {
     title: "Rehabilitation Support",
     desc: "Physical, occupational, and speech therapy for better livelihood.",
+    image: rehabilitationImage,
+    alt: "Rehabilitation therapy session with guided mobility support",
     imgLabel: "Rehabilitation Image",
     icon: Activity,
     color: "text-blue-600",
@@ -33,6 +46,8 @@ const programs = [
   {
     title: "Community Engagement",
     desc: "Programs that promote social inclusion and community participation.",
+    image: communityImage,
+    alt: "Inclusive community event with children and families participating",
     imgLabel: "Community Engagement Image",
     icon: Users,
     color: "text-purple-600",
@@ -61,6 +76,8 @@ export default function ProgramsSection() {
                   
                   <div className="h-44 w-full relative overflow-hidden bg-white">
                     <ImgBox 
+                      src={prog.image}
+                      alt={prog.alt}
                       label={prog.imgLabel} 
                       className="w-full h-full transition-transform duration-500 group-hover:scale-105" 
                     />

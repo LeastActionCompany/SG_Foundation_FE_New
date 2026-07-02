@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { navigateTo } from "../utils/navigation";
 import logo from "../assest/logo.jpeg";
+import volunteer_support from "../assest/Volunteer Support-bg.png";
+import vol from "../assest/vol.png";
+import volunteerHeroImage from "../assest/environment.png";
 
 /* ─────────────────────────────────────────
    Animated Counter
@@ -52,14 +55,15 @@ function Reveal({ children, delay = 0, y = 28, className = "" }) {
 function ImgBox({ src, alt, label, className = "", style = {}, children }) {
   return (
     <div
-      className={`relative overflow-hidden bg-gray-100 ${className}`}
-      style={style}
+      className={`relative overflow-hidden ${className}`}
+      style={{backgroundImage:"volunteer_support"}}
     >
       {src ? (
-        <img src={src} alt={alt} className="h-full w-full object-cover" />
+        <img src={volunteer_support} alt={alt} className="h-full w-full object-cover" />
       ) : (
         /* Clean gray placeholder — swap with real image by adding src prop */
-        <div className="flex h-full w-full items-end bg-gradient-to-br from-gray-100 to-gray-200 p-3">
+        <div className="flex h-full w-full items-end bg-gradient-to-br from-gray-100 to-gray-200 p-3"
+        >
           <span className="rounded bg-black/10 px-2 py-0.5 text-[10px] font-semibold text-gray-500">
             {label}
           </span>
@@ -214,36 +218,68 @@ export default function VolunteerSupportPage() {
     <div className="min-h-screen bg-white overflow-x-hidden font-sans">
 
       {/* ══ NAV ══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-green-100/60 shadow-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-          <button onClick={() => navigateTo("/")} className="flex items-center gap-3 group">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md ring-2 ring-green-100 group-hover:ring-green-300 transition-all overflow-hidden">
-              <img src={logo} alt="SG Foundation" className="h-full w-full object-contain p-1" />
-            </div>
-            <div className="leading-tight">
-              <p className="text-sm font-bold text-[#0a2512]">SG Foundation</p>
-              <p className="text-[10px] font-semibold text-green-500 uppercase tracking-widest">Spread Goodness</p>
-            </div>
-          </button>
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => navigateTo("/")}
-              className="flex items-center gap-1.5 rounded-full border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 transition hover:bg-gray-50 hover:text-gray-900"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                <path d="M19 12H5M12 5l-7 7 7 7" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              Back to Home
-            </button>
-            <a
-              href="#vs-cta"
-              className="rounded-full bg-gradient-to-r from-[#1a6b3c] to-[#0f4024] px-5 py-2 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
-            >
-              Get Involved
-            </a>
-          </div>
-        </div>
-      </nav>
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-pink-50 bg-white/95 backdrop-blur-xl shadow-sm transition-all">
+  <div className="mx-auto flex max-w-7xl items-center justify-between px-3 py-3 sm:px-6 lg:px-8">
+
+    {/* Logo */}
+    <button
+      onClick={() => navigateTo("/")}
+      className="flex items-center gap-2 sm:gap-3"
+    >
+      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-full bg-white p-1 shadow-sm ring-2 ring-[#9D174D]/10 transition-all group-hover:ring-[#9D174D]/30">
+        <img
+          src={logo}
+          alt="SG Foundation"
+          className="h-full w-full object-contain"
+        />
+      </div>
+
+      <div className="leading-tight text-left">
+        <p className="whitespace-nowrap text-xs font-bold text-[#4C1D95] sm:text-sm">
+          SG Foundation
+        </p>
+        <p className="hidden text-[10px] font-semibold uppercase tracking-widest text-[#9D174D] sm:block">
+          Spread Goodness
+        </p>
+      </div>
+    </button>
+
+    {/* Right Side */}
+    <div className="flex items-center gap-2 sm:gap-4">
+
+      {/* Home Button - Desktop Only */}
+      <button
+        onClick={() => navigateTo("/")}
+        className="hidden md:flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold text-gray-600 transition hover:bg-gray-50 hover:text-[#9D174D]"
+      >
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+        >
+          <path
+            d="M19 12H5M12 5l-7 7 7 7"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        Home
+      </button>
+
+      {/* CTA Button */}
+      <a
+        href="#cww-cta"
+        className="whitespace-nowrap rounded-full bg-[#9D174D] px-3 py-2 text-xs font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-[#831843] hover:shadow-lg sm:px-6 sm:py-2.5 sm:text-sm"
+      >
+        Get Involved
+      </a>
+
+    </div>
+  </div>
+</nav>
 
       {/* ══ SECTION 1 — HERO ══ */}
       <section className="relative min-h-[100svh] flex items-center overflow-hidden bg-white pt-20">
@@ -330,11 +366,7 @@ export default function VolunteerSupportPage() {
                   Replace with your hero volunteer image:
                   <img src={heroVolunteerImage} alt="Volunteers working together" className="h-full w-full object-cover" />
                 */}
-                <ImgBox
-                  label="Hero Volunteer Image"
-                  className="h-full w-full"
-                  style={{ borderRadius: "inherit" }}
-                />
+                <img src={volunteer_support} alt="Volunteers working together" className="h-full w-full object-cover" />
                 {/* Green brush-stroke overlay */}
                 <div className="absolute inset-0 bg-gradient-to-tl from-[#1a6b3c]/20 via-transparent to-transparent pointer-events-none" />
               </div>
@@ -447,14 +479,16 @@ export default function VolunteerSupportPage() {
                 <div className="relative mt-10 flex justify-center">
                   {/* Large circle image */}
                   <div
-                    className="relative overflow-hidden shadow-xl"
-                    style={{ width: 240, height: 240, borderRadius: "50%" }}
-                  >
-                    {/*
-                      Replace with: <img src={volunteerGroupImage} alt="Volunteer group" className="h-full w-full object-cover" />
-                    */}
-                    <ImgBox label="Volunteer Group Image" className="h-full w-full" />
-                  </div>
+  className="relative overflow-hidden shadow-xl bg-cover bg-center"
+  style={{
+    width: 240,
+    height: 240,
+    borderRadius: "50%",
+    backgroundImage: `url(${vol})`,
+  }}
+>
+  {/* Remove ImgBox if you want only the background image */}
+</div>
 
                   {/* Floating text label */}
                   <motion.div
@@ -627,12 +661,16 @@ export default function VolunteerSupportPage() {
       {/* ══ SECTION 6 — FINAL CTA ══ */}
       <section id="vs-cta" className="relative overflow-hidden">
         {/* Full-bleed background image area */}
-        <div className="absolute inset-0 bg-gray-100">
+        <div className="absolute inset-0 " >
           {/*
             Replace with your emotional CTA background image:
             <img src={ctaBackgroundImage} alt="Volunteer impact background" className="h-full w-full object-cover" />
           */}
-          <ImgBox label="CTA Background Image — Large emotional volunteer scene" className="h-full w-full" />
+          <img
+  src={volunteerHeroImage}
+  alt="Volunteers Making an Impact"
+  className="h-full w-full object-cover"
+/>
         </div>
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a2512]/92 via-[#0a2512]/80 to-[#0a2512]/50" />

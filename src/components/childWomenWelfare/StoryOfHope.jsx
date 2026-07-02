@@ -1,4 +1,5 @@
 import { Reveal, ImgBox } from "./shared";
+import storyImage from "../../assest/ChildWomenWelfare/Story.png";
 
 export default function StoryOfHope() {
   return (
@@ -39,6 +40,8 @@ export default function StoryOfHope() {
               <div className="absolute inset-0 border-2 border-dashed border-pink-200 rounded-full animate-spin-slow"></div>
               <div className="absolute inset-4">
                  <ImgBox 
+                   src={storyImage}
+                   alt="Woman beneficiary building skills through SG Foundation support"
                    label="Beneficiary Success Story Image" 
                    className="w-full h-full rounded-full shadow-xl overflow-hidden" 
                  />

@@ -1,12 +1,18 @@
 import { Reveal, ImgBox } from "./shared";
 import { GraduationCap, BookOpen, MonitorPlay, Palette, Compass } from "lucide-react";
+import school from "../../assest/education/school.png";
+import afterschool from "../../assest/education/afterschool.png";
+import digital from "../../assest/education/digital.png";
+import creative from "../../assest/education/creative.png";
+import mentorship from "../../assest/education/mentorship.png";
 
 const programs = [
   {
     num: "01",
     title: "School Access Support",
     desc: "Supporting enrollment, school fees, uniforms, and transportation for underprivileged children.",
-    imgLabel: "Program Image – School Access",
+    img: school,
+    imgAlt: "Children receiving school access support",
     icon: GraduationCap,
     bg: "bg-[#064E3B]",
   },
@@ -14,7 +20,8 @@ const programs = [
     num: "02",
     title: "After School Learning",
     desc: "After-school programs that strengthen foundational skills in a safe environment.",
-    imgLabel: "Program Image – After School",
+    img: afterschool,
+    imgAlt: "Children learning after school",
     icon: BookOpen,
     bg: "bg-[#D97706]",
   },
@@ -22,7 +29,8 @@ const programs = [
     num: "03",
     title: "Digital Learning",
     desc: "Introducing technology and digital literacy to prepare children for the future.",
-    imgLabel: "Program Image – Digital Learning",
+    img: digital,
+    imgAlt: "Children using digital learning tools",
     icon: MonitorPlay,
     bg: "bg-[#E85D04]",
   },
@@ -30,7 +38,8 @@ const programs = [
     num: "04",
     title: "Creative Education",
     desc: "Promoting arts, sports, and creativity to nurture talent and confidence.",
-    imgLabel: "Program Image – Creative Education",
+    img: creative,
+    imgAlt: "Children taking part in creative education",
     icon: Palette,
     bg: "bg-[#1E3A8A]",
   },
@@ -38,7 +47,8 @@ const programs = [
     num: "05",
     title: "Mentorship & Guidance",
     desc: "Connecting children with mentors for career guidance and personal growth.",
-    imgLabel: "Program Image – Mentorship",
+    img: mentorship,
+    imgAlt: "A mentor guiding a student",
     icon: Compass,
     bg: "bg-[#6D28D9]",
   },
@@ -60,22 +70,23 @@ export default function ProgramsSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {programs.map((prog, i) => {
-             const Icon = prog.icon;
-             return (
+            const Icon = prog.icon;
+
+            return (
               <Reveal key={prog.title} delay={i * 80}>
                 <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 h-full flex flex-col group relative">
-                  
                   <div className={`absolute top-0 left-0 w-10 h-10 ${prog.bg} text-white font-bold flex items-center justify-center rounded-br-2xl z-20 text-xs`}>
                     {prog.num}
                   </div>
 
                   <div className="h-40 w-full relative overflow-hidden bg-white p-4">
-                    <ImgBox 
-                      label={prog.imgLabel} 
-                      className="w-full h-full rounded-2xl transition-transform duration-500 group-hover:scale-105" 
+                    <ImgBox
+                      src={prog.img}
+                      alt={prog.imgAlt}
+                      className="w-full h-full rounded-2xl transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white text-[#064E3B] p-3 rounded-full shadow-md border border-gray-100 z-10">
-                       <Icon className="w-6 h-6" strokeWidth={1.5} />
+                      <Icon className="w-6 h-6" strokeWidth={1.5} />
                     </div>
                   </div>
 
@@ -89,7 +100,7 @@ export default function ProgramsSection() {
                   </div>
                 </div>
               </Reveal>
-            )
+            );
           })}
         </div>
       </div>

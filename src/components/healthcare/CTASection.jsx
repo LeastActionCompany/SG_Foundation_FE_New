@@ -1,6 +1,7 @@
 import { Reveal, ImgBox } from "./shared";
 import { Heart, Users } from "lucide-react";
 import { navigateTo } from "../../utils/navigation";
+import today from "../../assest/healthcare/today.jpeg";
 
 export default function CTASection() {
   return (
@@ -48,10 +49,11 @@ export default function CTASection() {
           {/* Right Image Full Bleed */}
           <Reveal delay={150} className="relative hidden lg:block h-full">
             <div className="absolute inset-y-0 right-0 w-[120%] shadow-[-20px_0_50px_rgba(0,0,0,0.3)]">
-               <ImgBox 
-                 label="CTA Background Image (healthcare-cta.jpg)" 
-                 className="w-full h-full object-cover rounded-l-[60px]" 
-               />
+               <img
+  src={today}
+  alt="Healthcare CTA"
+  className="w-full h-full object-cover rounded-l-[60px]"
+/>
                <div className="absolute inset-0 bg-[#0F9D94] mix-blend-multiply opacity-20 rounded-l-[60px]" />
             </div>
           </Reveal>

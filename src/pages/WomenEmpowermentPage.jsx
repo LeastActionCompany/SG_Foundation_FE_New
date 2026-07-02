@@ -2,6 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { navigateTo } from "../utils/navigation";
 import logo from "../assest/logo.jpeg";
+import women_empower from "../assest/women_empower.png";
+
+import CommunitySupportNetwork from "../assest/Community Support Network.png";
+import Education from "../assest/Education & Literacy.png";
+import Financial from "../assest/Financial Independence.png";
+import Health from "../assest/Health-Wellness-about.png";
+import Leadership from "../assest/Leadership & Advocacy.png";
+import vocational from "../assest/vocational training.png";
+
+import weFeaturedStory from "../assest/we_featured_story.jpg";
+
+
 
 /* ─── Placeholder image component ─── */
 function ImgPlaceholder({ name, className = "", style = {} }) {
@@ -76,7 +88,7 @@ const focusAreas = [
     description: "Hands-on skill programs in tailoring, handicrafts, beauty, catering, and digital literacy — building marketable expertise.",
     color: "#C2185B",
     bg: "#fce4ec",
-    image: "we_skill_training.jpg",
+    image: vocational,
     imageName: "Skill Training Photo",
   },
   {
@@ -91,7 +103,7 @@ const focusAreas = [
     description: "Training women to lead in their communities, speak up for rights, and take on decision-making roles with confidence.",
     color: "#7B1FA2",
     bg: "#f3e5f5",
-    image: "we_leadership.jpg",
+    image: Leadership,
     imageName: "Leadership Workshop Photo",
   },
   {
@@ -104,7 +116,7 @@ const focusAreas = [
     description: "Micro-finance, savings literacy, and self-help group programs enabling women to manage income and build assets.",
     color: "#00796B",
     bg: "#e0f2f1",
-    image: "we_finance.jpg",
+    image: Financial,
     imageName: "Financial Independence Photo",
   },
   {
@@ -118,7 +130,7 @@ const focusAreas = [
     description: "Awareness programs on maternal health, nutrition, hygiene, mental wellbeing, and access to healthcare services.",
     color: "#E64A19",
     bg: "#fbe9e7",
-    image: "we_health.jpg",
+    image: Health,
     imageName: "Health & Wellness Photo",
   },
   {
@@ -132,7 +144,7 @@ const focusAreas = [
     description: "Bridging the gender gap in education through literacy classes, scholarships, and re-enrollment support for women.",
     color: "#1565C0",
     bg: "#e3f2fd",
-    image: "we_education.jpg",
+    image: Education,
     imageName: "Education Photo",
   },
   {
@@ -146,7 +158,7 @@ const focusAreas = [
     description: "Peer networks, mentorship circles, and safe spaces where women connect, share experiences, and uplift each other.",
     color: "#F57F17",
     bg: "#fff8e1",
-    image: "we_community.jpg",
+    image: CommunitySupportNetwork,
     imageName: "Community Network Photo",
   },
 ];
@@ -211,40 +223,68 @@ export default function WomenEmpowermentPage() {
     <div className="min-h-screen bg-white overflow-x-hidden">
 
       {/* ── NAV BAR ── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-rose-100/60 shadow-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-          <button
-            onClick={() => navigateTo("/")}
-            className="flex items-center gap-3 group"
-          >
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md ring-2 ring-rose-100 group-hover:ring-rose-300 transition-all overflow-hidden">
-              <img src={logo} alt="SG Foundation" className="h-full w-full object-contain p-1" />
-            </div>
-            <div className="leading-tight">
-              <p className="text-sm font-bold text-[#16203b]">SG Foundation</p>
-              <p className="text-[10px] font-semibold text-rose-400 uppercase tracking-widest">Spread Goodness</p>
-            </div>
-          </button>
+     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-pink-50 bg-white/95 backdrop-blur-xl shadow-sm transition-all">
+  <div className="mx-auto flex max-w-7xl items-center justify-between px-3 py-3 sm:px-6 lg:px-8">
 
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => navigateTo("/")}
-              className="flex items-center gap-1.5 rounded-full border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 transition hover:bg-gray-50 hover:text-gray-900"
-            >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                <path d="M19 12H5M12 5l-7 7 7 7" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              Back to Home
-            </button>
-            <a
-              href="#we-get-involved"
-              className="rounded-full bg-gradient-to-r from-[#C2185B] to-[#880E4F] px-5 py-2 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
-            >
-              Get Involved
-            </a>
-          </div>
-        </div>
-      </nav>
+    {/* Logo */}
+    <button
+      onClick={() => navigateTo("/")}
+      className="flex items-center gap-2 sm:gap-3"
+    >
+      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-full bg-white p-1 shadow-sm ring-2 ring-[#9D174D]/10 transition-all group-hover:ring-[#9D174D]/30">
+        <img
+          src={logo}
+          alt="SG Foundation"
+          className="h-full w-full object-contain"
+        />
+      </div>
+
+      <div className="leading-tight text-left">
+        <p className="whitespace-nowrap text-xs font-bold text-[#4C1D95] sm:text-sm">
+          SG Foundation
+        </p>
+        <p className="hidden text-[10px] font-semibold uppercase tracking-widest text-[#9D174D] sm:block">
+          Spread Goodness
+        </p>
+      </div>
+    </button>
+
+    {/* Right Side */}
+    <div className="flex items-center gap-2 sm:gap-4">
+
+      {/* Home Button - Desktop Only */}
+      <button
+        onClick={() => navigateTo("/")}
+        className="hidden md:flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold text-gray-600 transition hover:bg-gray-50 hover:text-[#9D174D]"
+      >
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+        >
+          <path
+            d="M19 12H5M12 5l-7 7 7 7"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        Home
+      </button>
+
+      {/* CTA Button */}
+      <a
+        href="#cww-cta"
+        className="whitespace-nowrap rounded-full bg-[#9D174D] px-3 py-2 text-xs font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-[#831843] hover:shadow-lg sm:px-6 sm:py-2.5 sm:text-sm"
+      >
+        Get Involved
+      </a>
+
+    </div>
+  </div>
+</nav>
 
       {/* ── HERO ── */}
       <section ref={heroRef} className="relative min-h-[100svh] flex items-center overflow-hidden">
@@ -263,7 +303,7 @@ export default function WomenEmpowermentPage() {
 
         {/* Hero image placeholder — replace with your actual hero image */}
         <motion.div
-          style={{ y: heroY, opacity: heroOpacity }}
+          style={{ y: heroY, opacity: heroOpacity ,backgroundImage: `url(${women_empower})`}}
           className="absolute inset-0 z-0"
         >
           <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[55%] overflow-hidden">
@@ -271,19 +311,14 @@ export default function WomenEmpowermentPage() {
               REPLACE THIS with:
               <img src={YOUR_HERO_IMAGE} alt="Women Empowerment" className="h-full w-full object-cover opacity-30" />
             */}
-            <div className="h-full w-full bg-gradient-to-l from-[#C2185B]/10 to-transparent flex items-center justify-center">
-              <ImgPlaceholder
-                name="Hero Banner Image&#10;(we_hero_banner.jpg)"
-                className="h-full w-full opacity-20"
-              />
-            </div>
+           
           </div>
         </motion.div>
 
         {/* Hero content */}
         <motion.div
           style={{ opacity: heroOpacity }}
-          className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-20"
+          className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-20 "
         >
           <div className="max-w-3xl">
             <Reveal delay={0}>
@@ -414,10 +449,11 @@ export default function WomenEmpowermentPage() {
                   {/* Image placeholder */}
                   <div className="relative h-48 w-full overflow-hidden flex-shrink-0">
                     {/* REPLACE with: <img src={import(`../assest/women-empowerment/${area.image}`)} ... /> */}
-                    <ImgPlaceholder
-                      name={area.imageName}
-                      className="h-full w-full"
-                    />
+                    <img
+  src={area.image}
+  alt={area.title}
+  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+/>
                     <div
                       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       style={{ background: `linear-gradient(to top, ${area.color}33, transparent)` }}
@@ -518,12 +554,13 @@ export default function WomenEmpowermentPage() {
             <Reveal direction="right">
               <div className="relative">
                 <div className="overflow-hidden rounded-3xl aspect-[4/3]">
-                  {/* REPLACE with: <img src={weFeaturedStory} alt="..." className="w-full h-full object-cover" /> */}
-                  <ImgPlaceholder
-                    name="Featured Story Photo&#10;(we_featured_story.jpg)"
-                    className="w-full h-full"
-                    style={{ minHeight: "320px" }}
-                  />
+                 <div className="w-full h-full min-h-[320px] overflow-hidden rounded-3xl">
+  <img
+    src={weFeaturedStory}
+    alt="Featured Story"
+    className="w-full h-full object-cover"
+  />
+</div>
                 </div>
                 {/* Floating accent card */}
                 <div className="absolute -bottom-6 -right-4 rounded-2xl bg-gradient-to-br from-[#E91E63] to-[#880E4F] px-6 py-4 shadow-xl">
@@ -578,56 +615,93 @@ export default function WomenEmpowermentPage() {
             </div>
           </Reveal>
 
-          <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={t.name}
-                initial={false}
-                animate={{ opacity: i === activeTestimonial ? 1 : 0, x: i === activeTestimonial ? 0 : 30 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute inset-0 flex flex-col justify-center p-8 md:p-14"
-                style={{ pointerEvents: i === activeTestimonial ? "auto" : "none" }}
-              >
-                <svg className="mb-6 text-rose-200" width="40" height="32" viewBox="0 0 40 32" fill="currentColor">
-                  <path d="M0 32V19.2C0 8.533 6.4 2.133 19.2 0l2.4 4C14.4 5.6 10.667 9.067 10 14.4H18V32H0zm22 0V19.2C22 8.533 28.4 2.133 41.2 0l2.4 4C36.4 5.6 32.667 9.067 32 14.4H40V32H22z" />
-                </svg>
-                <p className="text-lg leading-relaxed text-gray-700 md:text-xl font-medium italic">"{t.quote}"</p>
-                <div className="mt-8 flex items-center gap-4">
-                  <div
-                    className="flex h-12 w-12 items-center justify-center rounded-full text-lg font-bold text-white"
-                    style={{ background: `linear-gradient(135deg, ${t.color}, ${t.color}bb)` }}
-                  >
-                    {t.initial}
-                  </div>
-                  <div>
-                    <p className="font-bold text-[#16203b]">{t.name}</p>
-                    <p className="text-sm text-gray-400">{t.role}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-            {/* Ghost height */}
-            <div className="invisible p-8 md:p-14">
-              <div className="mb-6 h-8 w-10" />
-              <p className="text-xl italic">placeholder height</p>
-              <div className="mt-8 h-12" />
-            </div>
+          <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl min-h-[500px] sm:min-h-[450px] md:min-h-[360px]">
+  {testimonials.map((t, i) => (
+    <motion.div
+      key={t.name}
+      initial={false}
+      animate={{
+        opacity: i === activeTestimonial ? 1 : 0,
+        x: i === activeTestimonial ? 0 : 30,
+      }}
+      transition={{
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="absolute inset-0 flex flex-col justify-center p-6 sm:p-8 md:p-14"
+      style={{
+        pointerEvents: i === activeTestimonial ? "auto" : "none",
+      }}
+    >
+      <svg
+        className="mb-6 text-rose-200"
+        width="40"
+        height="32"
+        viewBox="0 0 40 32"
+        fill="currentColor"
+      >
+        <path d="M0 32V19.2C0 8.533 6.4 2.133 19.2 0l2.4 4C14.4 5.6 10.667 9.067 10 14.4H18V32H0zm22 0V19.2C22 8.533 28.4 2.133 41.2 0l2.4 4C36.4 5.6 32.667 9.067 32 14.4H40V32H22z" />
+      </svg>
 
-            {/* Dots */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveTestimonial(i)}
-                  className="h-2 rounded-full transition-all duration-300"
-                  style={{
-                    width: i === activeTestimonial ? "24px" : "8px",
-                    background: i === activeTestimonial ? "#E91E63" : "#f48fb1",
-                  }}
-                />
-              ))}
-            </div>
-          </div>
+      <p className="text-base sm:text-lg md:text-xl leading-relaxed font-medium italic text-gray-700">
+        "{t.quote}"
+      </p>
+
+      <div className="mt-8 flex items-center gap-4">
+        <div
+          className="flex h-12 w-12 items-center justify-center rounded-full text-lg font-bold text-white"
+          style={{
+            background: `linear-gradient(135deg, ${t.color}, ${t.color}bb)`,
+          }}
+        >
+          {t.initial}
+        </div>
+
+        <div>
+          <p className="font-bold text-[#16203b]">{t.name}</p>
+          <p className="text-sm text-gray-400">{t.role}</p>
+        </div>
+      </div>
+    </motion.div>
+  ))}
+
+  {/* Ghost Height */}
+  <div className="invisible p-6 sm:p-8 md:p-14">
+    <svg width="40" height="32" className="mb-6">
+      <path d="M0 32V19.2C0 8.533 6.4 2.133 19.2 0l2.4 4C14.4 5.6 10.667 9.067 10 14.4H18V32H0zm22 0V19.2C22 8.533 28.4 2.133 41.2 0l2.4 4C36.4 5.6 32.667 9.067 32 14.4H40V32H22z" />
+    </svg>
+
+    <p className="text-base sm:text-lg md:text-xl leading-relaxed italic">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
+      dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit.
+    </p>
+
+    <div className="mt-8 flex items-center gap-4">
+      <div className="h-12 w-12 rounded-full" />
+      <div>
+        <div className="h-5 w-32 rounded" />
+        <div className="mt-2 h-4 w-24 rounded" />
+      </div>
+    </div>
+  </div>
+
+  {/* Dots */}
+  <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2">
+    {testimonials.map((_, i) => (
+      <button
+        key={i}
+        onClick={() => setActiveTestimonial(i)}
+        className="h-2 rounded-full transition-all duration-300"
+        style={{
+          width: i === activeTestimonial ? "24px" : "8px",
+          background:
+            i === activeTestimonial ? "#E91E63" : "#f48fb1",
+        }}
+      />
+    ))}
+  </div>
+</div>
         </div>
       </section>
 

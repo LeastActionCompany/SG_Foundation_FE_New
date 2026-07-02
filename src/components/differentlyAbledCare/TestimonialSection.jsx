@@ -1,5 +1,7 @@
 import { Reveal, ImgBox } from "./shared";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import parentImage from "../../assest/care/image.png";
+import heartImage from "../../assest/care/heart.jpeg";
 
 export default function TestimonialSection() {
   return (
@@ -25,7 +27,12 @@ export default function TestimonialSection() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0 bg-gray-100">
-                      <ImgBox label="User" className="w-full h-full !border-none" />
+                      <ImgBox
+                        src={parentImage}
+                        alt="Parent sharing feedback about SG Foundation care"
+                        label="User"
+                        className="w-full h-full !border-none"
+                      />
                     </div>
                     <div>
                       <p className="font-bold text-[#064E3B]">Neha Verma</p>
@@ -54,10 +61,16 @@ export default function TestimonialSection() {
           </div>
 
           <div className="lg:col-span-1 hidden lg:block">
-             {/* Decorative element for the right side or secondary testimonial */}
-             <div className="w-full h-full min-h-[300px] flex items-center justify-center opacity-10 pointer-events-none">
-               <svg width="200" height="200" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-             </div>
+            <Reveal delay={250} className="relative">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[40px] bg-white p-3 shadow-xl border border-gray-100">
+                <ImgBox
+                  src={heartImage}
+                  alt="Mentor encouraging a differently abled student during a care session"
+                  label="Care Session Image"
+                  className="w-full h-full rounded-[32px]"
+                />
+              </div>
+            </Reveal>
           </div>
           
         </div>

@@ -53,7 +53,7 @@ export function Reveal({ children, delay = 0, y = 28, className = "" }) {
 export function ImgBox({ src, alt, label, className = "", style = {}, children }) {
   return (
     <div
-      className={`relative overflow-hidden bg-gray-50 flex items-center justify-center border-2 border-dashed border-gray-300 ${className}`}
+      className={`relative overflow-hidden bg-gray-50 flex items-center justify-center ${src ? "" : "border-2 border-dashed border-gray-300"} ${className}`}
       style={style}
     >
       {src ? (

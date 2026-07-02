@@ -1,5 +1,6 @@
 import { Reveal, ImgBox } from "./shared";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import userImage from "../../assest/donate/user.png";
 
 export default function RealChangeStories() {
   return (
@@ -35,7 +36,12 @@ export default function RealChangeStories() {
                 
                 <div className="flex flex-col md:flex-row gap-8 items-center md:items-start relative z-10">
                   <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0 border-4 border-[#F4ECDC]">
-                     <ImgBox label="User" className="w-full h-full !border-none" />
+                     <ImgBox
+                       src={userImage}
+                       alt="Real change story testimonial"
+                       label="User"
+                       className="w-full h-full !border-none"
+                     />
                   </div>
                   <div className="flex-1 text-center md:text-left">
                     <p className="text-lg md:text-xl text-gray-700 mb-6 italic leading-relaxed font-serif">

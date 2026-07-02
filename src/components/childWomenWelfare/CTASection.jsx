@@ -1,6 +1,7 @@
 import { Reveal, ImgBox } from "./shared";
 import { Heart, ArrowRight } from "lucide-react";
 import { navigateTo } from "../../utils/navigation";
+import togetherImage from "../../assest/ChildWomenWelfare/together.png";
 
 export default function CTASection() {
   return (
@@ -13,7 +14,7 @@ export default function CTASection() {
             {/* Left Content */}
             <div className="p-12 lg:p-20">
               <Reveal delay={0}>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight font-display">
+                <h2 className="text-2xl md:text-5xl font-bold text-white mb-6 leading-tight font-display">
                   Together, We Nurture.<br />
                   Together, We Transform.
                 </h2>
@@ -49,6 +50,8 @@ export default function CTASection() {
             <Reveal delay={150} className="relative hidden lg:flex h-full items-center justify-center p-12">
               <div className="w-80 h-80 rounded-full overflow-hidden bg-white relative shadow-2xl border-8 border-white/20">
                  <ImgBox 
+                   src={togetherImage}
+                   alt="Women and children creating art together in a community welfare program"
                    label="Community Impact Image" 
                    className="w-full h-full object-cover rounded-full" 
                  />

@@ -1,5 +1,6 @@
 import { Reveal, ImgBox } from "./shared";
 import { ArrowRight, MapPin, Activity, Users } from "lucide-react";
+import helth from "../../assest/healthcare/helth.png"
 
 export default function MobileHealthSection() {
   return (
@@ -11,7 +12,11 @@ export default function MobileHealthSection() {
             {/* Left Image */}
             <Reveal delay={0}>
               <div className="relative aspect-[16/10] rounded-[32px] overflow-hidden shadow-lg border-4 border-white">
-                <ImgBox label="mobile-health-unit.jpg" className="w-full h-full" />
+                <img
+  src={helth}
+  alt="Mobile Health Unit"
+  className="w-full h-full object-cover"
+/>
               </div>
             </Reveal>
 

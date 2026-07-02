@@ -1,30 +1,37 @@
 import { Reveal, ImgBox } from "./shared";
 
+import certified from "../../assest/Offer/certified.png";
+import hand from "../../assest/Offer/hand.png";
+import lifetime from "../../assest/Offer/lifetime.png";
+import placemensupport from "../../assest/Offer/placemensupport.png";
+import trainers from "../../assest/Offer/trainers.png";
+
+
 const offers = [
   {
     title: "Expert Trainers",
     desc: "Industry experts with real-world experience and mentorship.",
-    imgLabel: "trainer.jpg",
+    imgLabel: trainers,
   },
   {
     title: "Practical Learning",
     desc: "Hands-on training with modern tools and technologies.",
-    imgLabel: "technical-training.jpg",
+    imgLabel: hand,
   },
   {
     title: "Certification",
     desc: "Recognized certifications to boost your career opportunities.",
-    imgLabel: "certification.jpg",
+    imgLabel: certified,
   },
   {
     title: "Placement Support",
     desc: "We connect you with top companies and opportunities.",
-    imgLabel: "placement-support.jpg",
+    imgLabel: placemensupport,
   },
   {
     title: "Lifetime Support",
     desc: "Continuous guidance even after training completion.",
-    imgLabel: "community-learning.jpg",
+    imgLabel: lifetime,
   },
 ];
 
@@ -46,11 +53,12 @@ export default function OfferSection() {
             <Reveal key={offer.title} delay={i * 80}>
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 h-full flex flex-col group">
                 <div className="h-44 w-full relative overflow-hidden">
-                  <ImgBox 
-                    label={offer.imgLabel} 
-                    className="w-full h-full transition-transform duration-500 group-hover:scale-105" 
-                  />
-                </div>
+  <img
+    src={offer.imgLabel}
+    alt={offer.title}
+    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+  />
+</div>
                 <div className="p-6 text-center flex-1 flex flex-col">
                   <h3 className="font-bold text-[#1F2937] text-sm mb-3">
                     {offer.title}

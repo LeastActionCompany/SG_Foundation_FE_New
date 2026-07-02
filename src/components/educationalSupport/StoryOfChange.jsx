@@ -1,4 +1,5 @@
 import { Reveal, ImgBox } from "./shared";
+import oneChild from "../../assest/education/onechild.png";
 
 export default function StoryOfChange() {
   return (
@@ -45,7 +46,8 @@ export default function StoryOfChange() {
               </div>
 
               <ImgBox 
-                label="Student Success Story Image" 
+                src={oneChild}
+                alt="Student smiling with educational support"
                 className="w-full h-full rounded-[32px] shadow-lg relative z-10" 
               />
             </div>
