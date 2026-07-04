@@ -71,7 +71,7 @@ export default function HeroSlider() {
       {/* Loading overlay */}
       <div className={`absolute inset-0 z-50 bg-ink transition-opacity duration-700 ${loaded ? "opacity-0 pointer-events-none" : "opacity-100"}`} />
 
-      <div className="relative h-screen min-h-[600px] w-full">
+      <div className="relative h-screen min-h-[850px] md:min-h-[600px]  w-full">
         <Swiper
           modules={[Navigation, Pagination, Autoplay, EffectFade]}
           effect="fade"
