@@ -15,7 +15,7 @@ export default function AboutSection() {
       <div className="absolute right-0 top-0 h-[600px] w-[600px] rounded-full bg-primary/3 blur-3xl" />
       <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-gold/5 blur-3xl" />
 
-      <div className="relative mx-auto grid w-full max-w-7xl lg:items-start items-center gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:gap-24 lg:px-8">
+      <div className="relative mx-auto grid w-full max-w-7xl lg:items-start items-center gap-16 px-4 sm:px-6 lg:grid-cols-2 xl:gap-24 lg:px-8">
         {/* Left: Image composition */}
         <Reveal direction="left" className="relative">
           <div className="relative">

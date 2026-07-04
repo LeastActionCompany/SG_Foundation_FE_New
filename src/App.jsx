@@ -12,7 +12,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import { ToastProvider } from "./components/ToastProvider";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 function getPathname() {
   return window.location.pathname || "/";
@@ -27,6 +27,10 @@ export default function App() {
 
     return () => window.removeEventListener("popstate", handleRouteChange);
   }, []);
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
 
   const isAdminRoute = pathname.startsWith("/admin");
   const isWomenEmpowermentRoute = pathname === "/women-empowerment";

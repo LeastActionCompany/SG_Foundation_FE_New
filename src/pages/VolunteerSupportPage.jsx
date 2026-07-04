@@ -2,8 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { navigateTo } from "../utils/navigation";
 import volunteer_support from "../assest/VolunteerSupport-bg.png";
-import vol from "../assest/vol.png";
 import volunteerHeroImage from "../assest/environment.png";
+import volunteerEducation from "../assest/Volunteer/1.png";
+import volunteerHealth from "../assest/Volunteer/2.png";
+import volunteerEnvironment from "../assest/Volunteer/3.png";
+import volunteerCommunity from "../assest/Volunteer/4.png";
 
 /* ─────────────────────────────────────────
    Animated Counter
@@ -55,10 +58,10 @@ function ImgBox({ src, alt, label, className = "", style = {}, children }) {
   return (
     <div
       className={`relative overflow-hidden ${className}`}
-      style={{backgroundImage:"volunteer_support"}}
+      style={style}
     >
       {src ? (
-        <img src={volunteer_support} alt={alt} className="h-full w-full object-cover" />
+        <img src={src} alt={alt} className="h-full w-full object-cover" />
       ) : (
         /* Clean gray placeholder — swap with real image by adding src prop */
         <div className="flex h-full w-full items-end bg-gradient-to-br from-gray-100 to-gray-200 p-3"
@@ -158,21 +161,25 @@ const opportunities = [
     title: "Education Support",
     desc: "Help children learn and grow by teaching, mentoring, or supporting educational activities in schools and community centers.",
     label: "Education Support Image",
+    image: volunteerEducation,
   },
   {
     title: "Health & Wellness",
     desc: "Assist in health camps, awareness programs, and promoting healthy communities through outreach and care.",
     label: "Health & Wellness Image",
+    image: volunteerHealth,
   },
   {
     title: "Environment Protection",
     desc: "Join clean-up drives, tree plantation, and green initiatives to protect our environment for future generations.",
     label: "Environment Protection Image",
+    image: volunteerEnvironment,
   },
   {
     title: "Community Service",
     desc: "Support community events, elderly care, and initiatives that uplift lives and foster neighborhood bonds.",
     label: "Community Service Image",
+    image: volunteerCommunity,
   },
 ];
 
@@ -206,6 +213,10 @@ export default function VolunteerSupportPage() {
   const [openAccordion, setOpenAccordion] = useState(0);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
+
+  useEffect(() => {
     const t = setInterval(() => setActiveTestimonial(p => (p + 1) % testimonials.length), 5000);
     return () => clearInterval(t);
   }, []);
@@ -221,7 +232,7 @@ export default function VolunteerSupportPage() {
         <div className="absolute -top-20 -right-20 h-[480px] w-[480px] rounded-full bg-[#d1fae5]/60 blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-[#bbf7d0]/40 blur-[80px] pointer-events-none" />
 
-        <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div className="relative mx-auto w-full xl:max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-12 lg:grid-cols-2 lg:items-center">
 
           {/* Left — text */}
           <div className="order-2 lg:order-1">
@@ -290,9 +301,9 @@ export default function VolunteerSupportPage() {
 
               {/* Main image — organic blob mask */}
               <div
-                className="relative w-full max-w-[500px] aspect-[5/4] overflow-hidden shadow-2xl"
+                className="relative w-full max-w-[500px] aspect-square overflow-hidden shadow-2xl"
                 style={{
-                  borderRadius: "60% 40% 55% 45% / 50% 55% 45% 50%",
+                  borderRadius: "0",
                   background: "#e8f5e9",
                 }}
               >
@@ -412,17 +423,13 @@ export default function VolunteerSupportPage() {
                 {/* Circular image collage — organic */}
                 <div className="relative mt-10 flex justify-center">
                   {/* Large circle image */}
-                  <div
-  className="relative overflow-hidden shadow-xl bg-cover bg-center"
-  style={{
-    width: 240,
-    height: 240,
-    borderRadius: "50%",
-    backgroundImage: `url(${vol})`,
-  }}
->
-  {/* Remove ImgBox if you want only the background image */}
-</div>
+                  <div className="relative h-60 w-60 overflow-hidden rounded-full shadow-xl">
+                    <img
+                      src={volunteerEducation}
+                      alt="Education support volunteer"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
 
                   {/* Floating text label */}
                   <motion.div
@@ -461,7 +468,7 @@ export default function VolunteerSupportPage() {
                           {/*
                             Replace with: <img src={opportunityImages[i]} alt={opp.title} className="h-full w-full object-cover" />
                           */}
-                          <ImgBox label={opp.label} className="h-full w-full" />
+                          <ImgBox src={opp.image} alt={opp.title} label={opp.label} className="h-full w-full" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <h3 className="text-sm font-bold text-[#0a2512]">{opp.title}</h3>

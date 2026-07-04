@@ -67,20 +67,22 @@ export default function DonationSection() {
         </Reveal>
 
         {/* Live Donor Ticker */}
-        <Reveal delay={300} className="mt-16 w-full overflow-hidden bg-white/50 backdrop-blur-md py-3 border-y border-primary/10 rounded-2xl shadow-sm">
-          <div className="flex animate-marquee gap-12 whitespace-nowrap">
-            {[...Array(2)].map((_, i) => (
-              <div key={i} className="flex gap-12">
-                {recentDonations.map((text, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-sm font-medium text-ink/70">
-                    <span className="flex h-2 w-2 rounded-full bg-gold animate-pulse" />
-                    {text}
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </Reveal>
+        <Reveal
+  delay={300}
+  className="mt-16 w-full overflow-x-auto overflow-y-hidden bg-white/50 backdrop-blur-md py-3 border-y border-primary/10 rounded-2xl shadow-sm scrollbar-hide"
+>
+  <div className="flex gap-8 whitespace-nowrap px-4 min-w-max">
+    {recentDonations.map((text, idx) => (
+      <div
+        key={idx}
+        className="flex items-center gap-2 text-sm font-medium text-ink/70 flex-shrink-0"
+      >
+        <span className="h-2 w-2 rounded-full bg-gold" />
+        {text}
+      </div>
+    ))}
+  </div>
+</Reveal>
 
         <div className="mt-20 grid grid-cols-1 gap-6 sm:grid-cols-3">
           {trustSignals.map((item, i) => {
